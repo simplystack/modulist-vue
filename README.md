@@ -1,34 +1,21 @@
-# vue
+# Modulist Vue
 
-## Project setup
-```
-npm install
-```
+Vue components for the Modulist Design System
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+
+## Install
+```sh
+$ npm install --save @modulist/css @modulist/vue
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+## Usage
+Include packages in your main.js:
+```js
+import "@modulist/css/dist/modulist.css";
+import ModulistVue from "@modulist/vue";
+
+Vue.use(ModulistVue);
 ```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## License
+MIT
