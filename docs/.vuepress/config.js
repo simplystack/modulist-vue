@@ -22,6 +22,7 @@ module.exports = {
         children: [
           'components/',
           'components/avatar',
+          'components/badge',
           'components/button',
           'components/textbox'
         ]
