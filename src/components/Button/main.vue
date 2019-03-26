@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :class="classes" :disabled="disabled">
+  <button class="button" :class="classes" :disabled="disabled" :type="type">
     <slot name="icon"></slot>
     <slot></slot>
   </button>
@@ -9,6 +9,10 @@
 export default {
   name: 'VButton',
   props: {
+    type: {
+      type: String,
+      default: 'button',
+    },
     appearance: {
       type: String,
       default: 'default',

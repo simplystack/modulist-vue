@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "@modulist/vue",
   "description": "Vue components for the Modulist Design System",
   "author": "SimplyStack",
   "version": "0.0.1",
@@ -48,5 +48,19 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simplystack/modulist-vue.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simplystack/modulist-vue/issues"
+  },
+  "homepage": "https://github.com/simplystack/modulist-vue#readme"
 }

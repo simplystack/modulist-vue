@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/',
+  base: '/modulist-vue/',
   title: 'Modulist Vue',
   description: 'Vue components for the Modulist Design System',
   themeConfig: {

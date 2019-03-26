@@ -23,6 +23,7 @@
 ## Props
 Name       | Type     | Description | Default
 ---------- | -------- | ----------- | -----
+type       | String   | Button type, 'button' or 'submit' | button
 appearance | String   | There are 6 options: ['default', 'primary', 'alternative', 'subtle', 'success', 'danger'] | <code>default</code>
 disabled   | Boolean  | Whether button disabled or not | false
 loading   | Boolean  | Whether button in loading state or not | false
