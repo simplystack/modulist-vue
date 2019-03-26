@@ -1,4 +1,4 @@
-# Button
+# Button <badge text="development" type="warn" />
 
 ## Example
 

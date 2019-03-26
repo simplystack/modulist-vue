@@ -1,4 +1,4 @@
-# Avatar
+# Avatar <badge text="development" type="warn" />
 Avatars are images that users can set as their profile picture.
 
 ## Example

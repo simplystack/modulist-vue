@@ -20,7 +20,7 @@ Flash messages, or alerts, inform users of successful or pending actions. Use th
 ## Props
 Name       | Type     | Description | Default
 ---------- | -------- | ----------- | -----
-type       | String   | There are 4 types: ['info', 'success', 'warn', 'error'] | <code>info</code>
+type       | String   | There are 4 types: ['info', 'success', 'warn', 'error'] | 'info'
 title      | String   | Title of alert | 'Default title'
 
 ## Slots
