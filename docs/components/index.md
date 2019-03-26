@@ -1,35 +1,29 @@
-# Button
+# Alert <badge text="development" type="warn" />
+Flash messages, or alerts, inform users of successful or pending actions. Use them sparingly. Don’t show more than one at a time.
 
 ## Example
 
 <div class="p-3 border rounded-2 my-3">
-  <v-button appearance="default">Default</v-button>
-  <v-button appearance="primary">Primary</v-button>
-  <v-button appearance="alternative">Alternative</v-button>
-  <v-button appearance="subtle">Alternative</v-button>
-  <v-button appearance="success">Success</v-button>
-  <v-button appearance="danger">Danger</v-button>
+  <v-alert title="Information" type="info" class="mb-3">Information text</v-alert>
+  <v-alert title="Success" type="success" class="mb-3">Success text</v-alert>
+  <v-alert title="Warning" type="warn" class="mb-3">Warning text</v-alert>
+  <v-alert title="Error" type="error">Error text</v-alert>
 </div>
 
 ``` html
-<v-button appearance="default">Default</v-button>
-<v-button appearance="primary">Primary</v-button>
-<v-button appearance="alternative">Alternative</v-button>
-<v-button appearance="subtle">Subtle</v-button>
-<v-button appearance="success">Success</v-button>
-<v-button appearance="danger">Danger</v-button>
+<v-alert title="Information" type="info">Information text</v-alert>
+<v-alert title="Success" type="success">Success text</v-alert>
+<v-alert title="Warning" type="warn">Warning text</v-alert>
+<v-alert title="Error" type="error">Error text</v-alert>
 ```
 
 ## Props
 Name       | Type     | Description | Default
 ---------- | -------- | ----------- | -----
-type       | String   | Button type, 'button' or 'submit' | button
-appearance | String   | There are 6 options: ['default', 'primary', 'alternative', 'subtle', 'success', 'danger'] | <code>default</code>
-disabled   | Boolean  | Whether button disabled or not | false
-loading   | Boolean  | Whether button in loading state or not | false
+type       | String   | There are 4 types: ['info', 'success', 'warn', 'error'] | <code>info</code>
+title      | String   | Title of alert | 'Default title'
 
 ## Slots
 Name     | Slot props       | Description
 -------- | -----------      | -----
-default  | None             | Button content
-icon     | None             | For icon
+default  | None             | Alert content
