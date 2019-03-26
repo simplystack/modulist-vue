@@ -42,24 +42,14 @@
 ## Props
 Name | Type   | Description   | Default | Required
 ---- | :----: | ------------- | ------- | --------
-id   | [String, Number] | Input name    | -       | true
-name | String | Unique identifier    | -       | true
-label | String | Label for input    | -       | true
-placeholder | String | Placeholder for input    | -       | false
-disabled | String | Whether input is disabled or not    | false       | false
-multiline | Boolean | If true, then component renders as textarea, otherwide it's input    | false       | false
-rows | Number | Rows of textare. Only works if multiline property is true    | 2       | false
-readonly | Boolean | Whether input is readonly or not    | false       | false
-
-## Slots
-Name     | Slot props       | Description
--------- | -----------      | -----
-default  |                  |
-
-## Methods
-Name             | Params            | Description
----------------- | ----------------- | -------------------
-method1          |                   |
+id          | [String, Number] | Input name                     | -       | true
+name        | String  | Unique identifier                       | -       | true
+label       | String  | Label for input                         | -       | true
+placeholder | String  | Placeholder for input                   | -       | false
+disabled    | String  | Whether input is disabled or not        | false       | false
+multiline   | Boolean | If true, then component renders as textarea, otherwide it's input    | false       | false
+rows        | Number  | Rows of textare. Only works if multiline property is true    | 2       | false
+readonly    | Boolean | Whether input is readonly or not        | false       | false
 
 ## Events
 Name             | Params            | Description
