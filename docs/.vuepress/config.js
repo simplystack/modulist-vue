@@ -25,6 +25,7 @@ module.exports = {
           'components/badge',
           'components/button',
           'components/checkbox',
+          'components/tabs',
           'components/textbox'
         ]
       }
