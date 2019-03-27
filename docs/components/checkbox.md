@@ -17,7 +17,7 @@ Name       | Type     | Description | Default | Required
 id         | [String, Number]   | Unique identifier |    | true
 Name       | String             | Name of input element |    | false
 label      | [String, Number]   | Label text        |    | true
-value      | any      | The model that the checkbox value syncs to. **If you are not using `v-model`, you should listen for the `input` event and update value.**        |    | true
+value, v-model      | any      | The model that the checkbox value syncs to. **If you are not using `v-model`, you should listen for the `input` event and update value.**        |    | true
 checked    | Boolean  | Whether or not the checkbox is checked by default. | false | false
 trueValue	 | any	    | The value that will be written to the model when the checkbox is checked | true | false
 falseValue | any	    | The value that will be written to the model when the checkbox is unchecked | false | false
@@ -25,13 +25,14 @@ tabindex	 | [Number, String]   | The checkbox input tabindex | None | false
 submittedValue | any  | The value that will be submitted for the checkbox when it is checked. Applied as the value attribute of the checkbox input element. | 'on' | false
 disabled	 | Boolean  | Whether or not the checkbox is disabled | false | false
 
+
 ## Events
-Name       | Description
----------- | -----------
-@focus     | Emitted when the checkbox is focused
-@blur      | Emitted when the checkbox loses focus
-@input     | Emitted when the checkbox value is changed. The handler is called with the new value
-@change    | Emitted when a change in the checkbox value is committed. The handler is called with the new value
+Name     | Params   | Description
+---------| ---------| -------------------
+@focus   | event    | Emitted when the checkbox is focused
+@blur    | event    | Emitted when the checkbox loses focus
+@input   | event    | Emitted when the checkbox value is changed. The handler is called with the new value
+@change  | event    | Emitted when a change in the checkbox value is committed. The handler is called with the new value
 
 ## Methods
 Name       | Description
@@ -43,10 +44,5 @@ export default {
   data() {
     return { checked: false };
   },
-  methods: {
-    makeFocus() {
-      this.$refs.checkbox.focus();
-    }
-  }
 };
 </script>
