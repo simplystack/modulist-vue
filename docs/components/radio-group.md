@@ -1,4 +1,4 @@
-# Radio Group
+# Radio Group <badge text="stable" />
 Set of radio's components
 
 ## Example

@@ -1,7 +1,9 @@
 <template>
   <button class="button" :class="classes" :disabled="disabled" :type="type">
-    <slot name="icon"></slot>
     <slot></slot>
+    <div class="button__icon" v-if="$slots.icon">
+      <slot name="icon"></slot>
+    </div>
   </button>
 </template>
 
@@ -28,12 +30,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    iconFirst: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return [
         `button--${this.appearance}`,
         { 'button--loading': this.loading },
+        { 'button--icon-first': this.iconFirst },
       ];
     },
   },

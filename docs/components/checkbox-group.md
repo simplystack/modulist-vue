@@ -1,4 +1,4 @@
-# Checkbox Group
+# Checkbox Group <badge text="stable" />
 Set of checkbox's components
 
 ## Example
