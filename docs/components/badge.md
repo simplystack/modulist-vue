@@ -1,4 +1,4 @@
-# Badge
+# Badge <badge text="stable" />
 Badges, our small count and labeling component.
 
 ## Example
@@ -11,6 +11,14 @@ Badges, our small count and labeling component.
   <v-badge type="danger" text="Default" class="mr-2" />
 </div>
 
+```html
+<v-badge text="Default" />
+<v-badge type="primary" text="Default" />
+<v-badge type="alternative" text="Default" />
+<v-badge type="success" text="Default" />
+<v-badge type="warning" text="Default" />
+<v-badge type="danger" text="Default" />
+```
 
 ## Props
 Name       | Type     | Description | Default | Required
