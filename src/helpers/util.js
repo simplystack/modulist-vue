@@ -14,3 +14,17 @@ export function looseEqual(a, b) {
     isObject(a) && isObject(b) ? JSON.stringify(a) === JSON.stringify(b) : false
   );
 }
+
+/**
+ * Check if a val exists in arr using looseEqual comparison
+ */
+export function looseIndexOf(arr, val) {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < arr.length; i++) {
+    if (looseEqual(arr[i], val)) {
+      return i;
+    }
+  }
+
+  return -1;
+}

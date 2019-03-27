@@ -68,6 +68,7 @@ Name       | Description
 Name       | Description
 ---------- | ----------
 reset()    | Call this method to reset the radio group's `value` to its initial `value`.
+
 <script>
 export default {
   data() {

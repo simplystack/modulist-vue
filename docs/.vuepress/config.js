@@ -25,6 +25,7 @@ module.exports = {
           'components/badge',
           'components/button',
           'components/checkbox',
+          'components/checkbox-group',
           'components/radio',
           'components/radio-group',
           'components/tabs',
