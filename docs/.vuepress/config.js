@@ -26,6 +26,7 @@ module.exports = {
           'components/button',
           'components/checkbox',
           'components/checkbox-group',
+          'components/progress',
           'components/radio',
           'components/radio-group',
           'components/spinner',
