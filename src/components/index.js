@@ -6,6 +6,7 @@ export { default as VCheckbox } from './Checkbox';
 export { default as VCheckboxGroup } from './CheckboxGroup';
 export { default as VRadio } from './Radio';
 export { default as VRadioGroup } from './RadioGroup';
+export { default as VSpinner } from './Spinner';
 export { default as VTab } from './Tab';
 export { default as VTabs } from './Tabs';
 export { default as VTextbox } from './Textbox';

@@ -28,6 +28,7 @@ module.exports = {
           'components/checkbox-group',
           'components/radio',
           'components/radio-group',
+          'components/spinner',
           'components/tabs',
           'components/textbox'
         ]
