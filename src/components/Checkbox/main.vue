@@ -1,5 +1,5 @@
 <template>
-  <div class="checkbox" :class="{ 'checkbox--indeterminate' : indeterminate }">
+  <label :for="id" class="checkbox" :class="{ 'checkbox--indeterminate' : indeterminate }">
     <input
       :id="id"
       :name="name"
@@ -16,8 +16,9 @@
       @focus="onFocus"
       @change="onChange"
     >
-    <label :for="id" class="checkbox__label" v-text="label"></label>
-  </div>
+    <span class="checkbox__mark"></span>
+    <span class="checkbox__text" v-text="label"></span>
+  </label>
 </template>
 
 <script>
@@ -28,7 +29,6 @@ export default {
   props: {
     id: {
       type: [String, Number],
-      required: true,
     },
     name: {
       type: String,

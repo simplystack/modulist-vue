@@ -14,7 +14,7 @@ The custom checkbox and it's states.
 ## Props
 Name       | Type     | Description | Default | Required
 ---------- | -------- | ----------- | ------- | --------
-id         | [String, Number]   | Unique identifier |    | true
+id         | [String, Number]   | Unique identifier |    | false
 Name       | String             | Name of input element |    | false
 label      | [String, Number]   | Label text        |    | true
 value, v-model      | any      | The model that the checkbox value syncs to. **If you are not using `v-model`, you should listen for the `input` event and update value.**        |    | true

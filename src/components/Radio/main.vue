@@ -1,5 +1,5 @@
 <template>
-  <div class="radio">
+  <label class="radio" :for="id">
     <input
       class="radio__input"
       type="radio"
@@ -16,8 +16,9 @@
       @focus="onFocus"
 
     >
-    <label class="radio__label" :for="id">{{ label }}</label>
-  </div>
+    <span class="radio__circle"></span>
+    <span class="radio__text">{{ label }}</span>
+  </label>
 </template>
 
 <script>
@@ -26,7 +27,6 @@ export default {
   props: {
     id: {
       type: [String, Number],
-      required: true,
     },
     name: {
       type: String,
