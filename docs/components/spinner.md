@@ -1,4 +1,4 @@
-# Spinner
+# Spinner <badge text="development" />
 Spinner a component that indicate loading state.
 
 ## Example
