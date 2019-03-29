@@ -2,7 +2,7 @@
   "name": "@modulist/vue",
   "description": "Vue components for the Modulist Design System",
   "author": "SimplyStack",
-  "version": "0.0.1",
+  "version": "1.0.0-alpha.0",
   "main": "dist/modulist-vue.common.js",
   "module": "src/entry.js",
   "unpkg": "dist/modulist-vue.min.js",
@@ -49,6 +49,9 @@
     "*.{js,vue}": [
       "vue-cli-service lint",
       "git add"
+    ],
+    "ignore": [
+      "**/dist/*.css"
     ]
   },
   "directories": {
