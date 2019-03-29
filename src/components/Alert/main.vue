@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'MlAlert',
+  name: 'VAlert',
   props: {
     title: {
       type: String,
