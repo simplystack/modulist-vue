@@ -27,7 +27,7 @@ Vue.use(ModulistVue);
 
 **Browser**
 
-Alternatively, you can include script directly on your html page. See [example here](modulist-vue/examples/browser/index.html).
+Alternatively, you can include script directly on your html page. See [example here](https://github.com/simplystack/modulist-vue/blob/master/examples/browser/index.html).
 
 ```html
 <div id="app">
