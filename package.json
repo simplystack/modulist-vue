@@ -3,7 +3,7 @@
   "description": "Vue components for the Modulist Design System",
   "author": "SimplyStack",
   "version": "0.0.1",
-  "main": "dist/modulist-vue.umd.js",
+  "main": "dist/modulist-vue.common.js",
   "module": "src/entry.js",
   "unpkg": "dist/modulist-vue.min.js",
   "files": [
@@ -15,7 +15,9 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "deploy": "bash scripts/deploy.sh",
+    "prepublish": "bash scripts/prepublish.sh"
   },
   "devDependencies": {
     "@modulist/css": "0.0.15",

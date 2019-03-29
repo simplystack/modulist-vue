@@ -50,8 +50,8 @@ export default [
     external,
     output: {
       compact: true,
-      file: 'dist/modulist-vue.umd.js',
-      format: 'umd',
+      file: 'dist/modulist-vue.common.js',
+      format: 'cjs',
       name: 'ModulistVue',
       exports: 'named',
       globals,
@@ -71,7 +71,7 @@ export default [
     output: {
       compact: true,
       file: 'dist/modulist-vue.min.js',
-      format: 'iife',
+      format: 'umd',
       name: 'ModulistVue',
       exports: 'named',
       globals,
