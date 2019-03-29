@@ -1,4 +1,4 @@
-# Textbox <badge text="development" type="warn" />
+# Textbox <badge text="stable" />
 Textbox is a universal component that can turn into both input and textarea.
 
 ## Example

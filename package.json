@@ -18,7 +18,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "devDependencies": {
-    "@modulist/css": "0.0.9",
+    "@modulist/css": "0.0.10",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-unit-jest": "^3.5.0",
@@ -62,5 +62,6 @@
   "bugs": {
     "url": "https://github.com/simplystack/modulist-vue/issues"
   },
-  "homepage": "https://github.com/simplystack/modulist-vue#readme"
+  "homepage": "https://github.com/simplystack/modulist-vue#readme",
+  "dependencies": {}
 }
