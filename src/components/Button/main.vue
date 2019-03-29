@@ -22,6 +22,13 @@ export default {
         return ['default', 'primary', 'alternative', 'subtle', 'success', 'danger'].indexOf(appearance) > -1;
       },
     },
+    size: {
+      type: String,
+      default: '3',
+      validator(appearance) {
+        return ['0', '1', '2', '3', '4'].indexOf(appearance) > -1;
+      },
+    },
     loading: {
       type: Boolean,
       default: false,
@@ -39,6 +46,7 @@ export default {
     classes() {
       return [
         `button--${this.appearance}`,
+        `button--size-${this.size}`,
         { 'button--loading': this.loading },
         { 'button--icon-first': this.iconFirst },
       ];

@@ -63,11 +63,24 @@
 <v-button disabled appearance="default">Default</v-button>
 ```
 
+<div class="p-3 border rounded-2 my-3">
+  <v-button size="0" appearance="default">Default</v-button>
+  <v-button size="1" appearance="default">Default</v-button>
+  <v-button size="2" appearance="default">Default</v-button>
+  <v-button size="3" appearance="default">Default</v-button>
+  <v-button size="4" appearance="default">Default</v-button>
+</div>
+
+``` html
+<v-button disabled appearance="default">Default</v-button>
+```
+
 ## Props
 Name       | Type     | Description | Default
 ---------- | -------- | ----------- | -----
 type       | String   | Button type, 'button' or 'submit' | button
 appearance | String   | There are 6 options: ['default', 'primary', 'alternative', 'subtle', 'success', 'danger'] | <code>default</code>
+size       | String   | Button size, ['1', '2', '3', '4'] | '3'
 disabled   | Boolean  | Whether button disabled or not | false
 loading    | Boolean  | Whether button in loading state or not | false
 icon-first | Boolean  | Set to `true` if you want to render icon before text | false
