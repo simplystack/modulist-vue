@@ -9,8 +9,15 @@ export default {
     type: {
       type: String,
       default: 'default',
-      validator(appearance) {
-        return ['default', 'primary', 'alternative', 'warning', 'success', 'danger'].indexOf(appearance) > -1;
+      validator(type) {
+        return ['default', 'primary', 'alternative', 'warning', 'success', 'danger'].indexOf(type) > -1;
+      },
+    },
+    align: {
+      type: String,
+      default: 'middle',
+      validator(align) {
+        return ['top', 'middle', 'bottom'].indexOf(align) > -1;
       },
     },
     text: {
@@ -22,6 +29,7 @@ export default {
     classes() {
       return [
         `badge--${this.type}`,
+        `badge--align-${this.align}`,
       ];
     },
   },
