@@ -31,6 +31,7 @@ module.exports = {
           'components/radio',
           'components/radio-group',
           'components/spinner',
+          'components/stepper',
           'components/tabs',
           'components/textbox',
           'components/toggle',

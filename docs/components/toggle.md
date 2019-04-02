@@ -1,4 +1,4 @@
-# Toggle 
+# Toggle <badge text="stable" />
 
 ## Example
 <div class="p-3 border rounded-2 my-3 flex flex-column">
