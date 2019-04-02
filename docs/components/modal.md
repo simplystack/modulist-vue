@@ -2,7 +2,6 @@
 A classic modal overlay, in which you can include any content you want.
 
 ## Example
-
 <div class="p-3 border rounded-2 my-3">
   <v-button @click="open('modal1')" appearance="primary">Open modal 1</v-button>
   <v-modal :open="modal1" @close="close('modal1')" title="Modal 1">
