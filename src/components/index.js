@@ -5,6 +5,8 @@ export { default as VButton } from './Button';
 export { default as VCheckbox } from './Checkbox';
 export { default as VCheckboxGroup } from './CheckboxGroup';
 export { default as VModal } from './Modal';
+export { default as VNotification } from './Notification';
+export { default as VNotificationContainer } from './NotificationContainer';
 export { default as VProgress } from './Progress';
 export { default as VRadio } from './Radio';
 export { default as VRadioGroup } from './RadioGroup';

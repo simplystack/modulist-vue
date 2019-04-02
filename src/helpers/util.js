@@ -28,3 +28,10 @@ export function looseIndexOf(arr, val) {
 
   return -1;
 }
+
+/**
+ * Transform first letter to uppercase
+ */
+export function toUpperCaseFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
