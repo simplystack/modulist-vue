@@ -1,6 +1,6 @@
 <template>
   <transition name="modal" @after-enter="onEnter" @after-leave="onLeave">
-    <div class="modal modal__mask" v-show="open" :role="role">
+    <div class="modal modal__mask" v-show="open" :role="role" :class="classes">
       <div ref="backdrop" class="modal__wrapper" @click="dismissOnBackdrop && close($event)">
         <div
           ref="container"
@@ -59,6 +59,13 @@ export default {
       type: String,
       default: 'Modal title',
     },
+    size: {
+      type: String,
+      default: '2',
+      validator(size) {
+        return ['1', '2', '3'].indexOf(size) > -1;
+      },
+    },
     dismissible: {
       type: Boolean,
       default: true,
@@ -77,6 +84,11 @@ export default {
     },
     dismissOnEsc() {
       return this.dismissOn.indexOf('esc') > -1;
+    },
+    classes() {
+      return [
+        `modal--size-${this.size}`,
+      ];
     },
   },
   methods: {
