@@ -2,7 +2,6 @@
 Avatars are images that users can set as their profile picture.
 
 ## Example
-
 <div class="p-3 border rounded-2 my-3">
   <v-avatar src="https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png" :size="32" />
 </div>

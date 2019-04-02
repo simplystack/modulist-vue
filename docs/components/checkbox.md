@@ -2,7 +2,6 @@
 The custom checkbox and it's states.
 
 ## Example
-
 <div class="p-3 border rounded-2 my-3">
   <v-checkbox id="checkbox1" label="Check me" v-model="checked" />
 </div>

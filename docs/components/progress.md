@@ -3,7 +3,6 @@ Simple progress component showing progress.
 
 
 ## Example
-
 <div class="p-3 border rounded-2 my-3 flex flex-column">
   <!-- Indeterminated -->
   <v-progress class="mb-5"></v-progress>

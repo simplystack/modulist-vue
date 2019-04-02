@@ -1,7 +1,6 @@
 # Button <badge text="development" type="warn" />
 
 ## Example
-
 <div class="p-3 border rounded-2 my-3">
   <v-button appearance="default">Default</v-button>
   <v-button appearance="primary">Primary</v-button>
