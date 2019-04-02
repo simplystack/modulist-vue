@@ -12,3 +12,4 @@ export { default as VSpinner } from './Spinner';
 export { default as VTab } from './Tab';
 export { default as VTabs } from './Tabs';
 export { default as VTextbox } from './Textbox';
+export { default as VToggle } from './Toggle';

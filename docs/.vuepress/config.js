@@ -32,7 +32,8 @@ module.exports = {
           'components/radio-group',
           'components/spinner',
           'components/tabs',
-          'components/textbox'
+          'components/textbox',
+          'components/toggle',
         ]
       }
     ]
