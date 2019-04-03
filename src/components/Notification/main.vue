@@ -1,6 +1,5 @@
 <template>
-  <transition name="move-notification">
-    <div class="notification" :class="classes">
+  <div class="notification" :class="classes">
       <div class="notification__icon">
         <svg v-if="type === 'warning'" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16">
           <g fill="none" fill-rule="evenodd" transform="translate(-1 -1)">
@@ -52,7 +51,6 @@
         </v-button>
       </div>
     </div>
-  </transition>
 </template>
 
 <script>

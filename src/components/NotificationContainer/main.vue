@@ -1,18 +1,20 @@
 <template>
   <div class="notification-container" :class="classes">
-    <v-notification
-      :id="`notification-${index}`"
-      :key="item.timestamp.getTime()"
-      :type="item.type"
-      :title="item.title"
-      :message="item.message"
-      :actions="item.actions"
-      :timestamp="item.timestamp"
+    <transition-group name="list">
+      <v-notification
+        :id="`notification-${index}`"
+        :key="item.timestamp.getTime()"
+        :type="item.type"
+        :title="item.title"
+        :message="item.message"
+        :actions="item.actions"
+        :timestamp="item.timestamp"
 
-      @close="remove(item.timestamp)"
+        @close="remove(item.timestamp)"
 
-      v-for="(item, index) in queue"
-    ></v-notification>
+        v-for="(item, index) in queue"
+      ></v-notification>
+    </transition-group>
   </div>
 </template>
 
@@ -61,71 +63,11 @@ export default {
 </script>
 
 <style>
-  .move-notification-appear, .move-notification-enter-active {
-    animation-duration: .3s;
-    animation-fill-mode: both;
-    animation-play-state: paused
+  .list-enter-active, .list-leave-active {
+    transition: all .3s;
   }
-
-  .move-notification-leave-active {
-    animation-duration: .3s;
-    animation-fill-mode: both;
-    animation-play-state: paused
-  }
-
-  .move-notification-appear, .move-notification-enter-active {
-    animation-name: moveNoticeIn;
-    animation-play-state: running
-  }
-
-  .move-notification-leave-active {
-    animation-name: moveNoticeOut;
-    animation-play-state: running
-  }
-
-  .move-notification-appear, .move-notification-enter-active {
+  .list-enter, .list-leave-to {
     opacity: 0;
-    animation-timing-function: ease-in-out
-  }
-
-  .move-notification-leave-active {
-    animation-timing-function: ease-in-out
-  }
-
-  @keyframes moveNoticeIn {
-    0% {
-      opacity: 0;
-      transform-origin: 0 0;
-      transform: translateX(100%)
-    }
-    100% {
-      opacity: 1;
-      transform-origin: 0 0;
-      transform: translateX(0)
-    }
-  }
-
-  @keyframes moveNoticeOut {
-    0% {
-      transform-origin: 0 0;
-      transform: translateX(0);
-      opacity: 1
-    }
-    70% {
-      transform-origin: 0 0;
-      transform: translateX(100%);
-      height: auto;
-      padding: 16px;
-      margin-bottom: 10px;
-      opacity: 0
-    }
-    100% {
-      transform-origin: 0 0;
-      transform: translateX(100%);
-      height: 0;
-      padding: 0;
-      margin-bottom: 0;
-      opacity: 0
-    }
+    transform: translateX(30px);
   }
 </style>
