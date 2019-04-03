@@ -28,6 +28,7 @@ module.exports = {
           'components/checkbox-group',
           'components/modal',
           'components/notification',
+          'components/pagination',
           'components/progress',
           'components/radio',
           'components/radio-group',
