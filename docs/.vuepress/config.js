@@ -32,6 +32,7 @@ module.exports = {
           'components/progress',
           'components/radio',
           'components/radio-group',
+          'components/select',
           'components/spinner',
           'components/stepper',
           'components/tabs',

@@ -11,6 +11,8 @@ export { default as VPagination } from './Pagination';
 export { default as VProgress } from './Progress';
 export { default as VRadio } from './Radio';
 export { default as VRadioGroup } from './RadioGroup';
+export { default as VSelect } from './Select';
+export { default as VSelectOption } from './SelectOption';
 export { default as VSpinner } from './Spinner';
 export { default as VStepper } from './Stepper';
 export { default as VTab } from './Tab';

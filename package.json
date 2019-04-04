@@ -20,7 +20,7 @@
     "prepublish": "bash scripts/prepublish.sh"
   },
   "devDependencies": {
-    "@modulist/css": "0.0.28",
+    "@modulist/css": "0.0.29",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-unit-jest": "^3.5.0",
@@ -69,5 +69,7 @@
     "url": "https://github.com/simplystack/modulist-vue/issues"
   },
   "homepage": "https://github.com/simplystack/modulist-vue#readme",
-  "dependencies": {}
+  "dependencies": {
+    "fuzzysearch": "^1.0.3"
+  }
 }

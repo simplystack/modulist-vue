@@ -35,3 +35,10 @@ export function looseIndexOf(arr, val) {
 export function toUpperCaseFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+/**
+ * Check if object is empty
+ */
+export function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
