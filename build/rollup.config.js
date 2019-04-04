@@ -22,10 +22,14 @@ const baseConfig = {
 const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
+  'fuzzysearch',
+  'vue',
 ];
 const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
+  fuzzysearch: 'fuzzysearch',
+  vue: 'Vue',
 };
 
 export default [

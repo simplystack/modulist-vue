@@ -47,13 +47,8 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "ignore": [
-      "**/dist/*.js"
-    ]
+    "*.{js,vue}": ["vue-cli-service lint", "git add"],
+    "ignore": ["**/dist/*.js"]
   },
   "directories": {
     "doc": "docs",
