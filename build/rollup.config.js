@@ -24,12 +24,14 @@ const external = [
   // eg. 'jquery'
   'fuzzysearch',
   'vue',
+  'popper.js',
 ];
 const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
   fuzzysearch: 'fuzzysearch',
   vue: 'Vue',
+  'popper.js': 'Popper',
 };
 
 export default [

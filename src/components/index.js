@@ -8,6 +8,7 @@ export { default as VModal } from './Modal';
 export { default as VNotification } from './Notification';
 export { default as VNotificationContainer } from './NotificationContainer';
 export { default as VPagination } from './Pagination';
+export { default as VPopover } from './Popover';
 export { default as VProgress } from './Progress';
 export { default as VRadio } from './Radio';
 export { default as VRadioGroup } from './RadioGroup';

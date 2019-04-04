@@ -29,6 +29,7 @@ module.exports = {
           'components/modal',
           'components/notification',
           'components/pagination',
+          'components/popover',
           'components/progress',
           'components/radio',
           'components/radio-group',
