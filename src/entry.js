@@ -1,5 +1,6 @@
 // Import vue components
 import * as components from './components';
+import * as directives from './directives';
 
 // install function executed by Vue.use()
 function install(Vue) {
@@ -7,6 +8,9 @@ function install(Vue) {
   install.installed = true;
   Object.keys(components).forEach((component) => {
     Vue.component(component, components[component]);
+  });
+  Object.keys(directives).forEach((directive) => {
+    Vue.directive(directive, directives[directive]);
   });
 }
 
@@ -33,3 +37,7 @@ export default plugin;
 // To allow individual component use, export components
 // each can be registered via Vue.component()
 export * from './components';
+
+// To allow individual directive use, export directives
+// each can be registered via Vue.directive()
+export * from './directives';

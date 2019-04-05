@@ -43,6 +43,14 @@ module.exports = {
           'components/textbox',
           'components/toggle',
         ]
+      },
+      {
+        title: 'Directives',
+        collapsable: false,
+        children: [
+          'directives/autofocus',
+          'directives/clickoutside'
+        ],
       }
     ]
   },
