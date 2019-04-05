@@ -2,6 +2,9 @@ module.exports = {
   base: '/modulist-vue/',
   title: 'Modulist Vue',
   description: 'Vue components for the Modulist Design System',
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.png' }]
+  ],
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
