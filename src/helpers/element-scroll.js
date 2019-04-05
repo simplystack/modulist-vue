@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable consistent-return */
+
 export function inView(element, container) {
   if (!element) {
     return;

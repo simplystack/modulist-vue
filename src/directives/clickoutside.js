@@ -1,21 +1,22 @@
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 import Vue from 'vue';
 
 const isServer = Vue.prototype.$isServer;
 
-const on = (function () {
+const on = ((() => {
   if (!isServer && document.addEventListener) {
-    return function (element, event, handler) {
+    return (element, event, handler) => {
       if (element && event && handler) {
         element.addEventListener(event, handler, false);
       }
     };
   }
-  return function (element, event, handler) {
+  return (element, event, handler) => {
     if (element && event && handler) {
       element.attachEvent(`on${event}`, handler);
     }
   };
-}());
+})());
 
 const nodeList = [];
 const ctx = '@@clickoutsideContext';
@@ -23,14 +24,16 @@ const ctx = '@@clickoutsideContext';
 let startClick;
 let seed = 0;
 
+/* eslint-disable-next-line */
 !Vue.prototype.$isServer && on(document, 'mousedown', e => (startClick = e));
 
+/* eslint-disable-next-line */
 !Vue.prototype.$isServer && on(document, 'mouseup', (e) => {
   nodeList.forEach(node => node[ctx].documentHandler(e, startClick));
 });
 
 function createDocumentHandler(el, binding, vnode) {
-  return function (mouseup = {}, mousedown = {}) {
+  return (mouseup = {}, mousedown = {}) => {
     if (!vnode
       || !vnode.context
       || !mouseup.target
@@ -47,6 +50,7 @@ function createDocumentHandler(el, binding, vnode) {
       && vnode.context[el[ctx].methodName]) {
       vnode.context[el[ctx].methodName]();
     } else {
+      /* eslint-disable-next-line */
       el[ctx].bindingFn && el[ctx].bindingFn();
     }
   };
@@ -56,9 +60,11 @@ function createDocumentHandler(el, binding, vnode) {
  * v-clickoutside
  * @example
  * ```vue
- * <div v-element-clickoutside="handleClose">
+ * <div v-clickoutside="handleClose">
  * ```
  */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-param-reassign */
 export default {
   bind(el, binding, vnode) {
     nodeList.push(el);
