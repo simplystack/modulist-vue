@@ -41,7 +41,7 @@
     "vue": "^2.6.10",
     "vue-server-renderer": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.0.0-alpha.46"
+    "vuepress": "^1.0.0-alpha.47"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
