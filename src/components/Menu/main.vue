@@ -74,26 +74,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  .menu {
-    list-style: none;
-    margin: 4px;
-    border-radius: 4px;
-    max-height: 100vh;
-    max-width: 272px;
-    min-width: 168px;
-    outline: none;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding: 0;
-    color: var(--body-text-color);
-    background-color: white;
-  }
-
-  .menu__focus-redirector {
-    position: absolute;
-    opacity: 0;
-  }
-
-</style>
