@@ -29,6 +29,7 @@ module.exports = {
           'components/button',
           'components/checkbox',
           'components/checkbox-group',
+          'components/menu',
           'components/modal',
           'components/notification',
           'components/pagination',

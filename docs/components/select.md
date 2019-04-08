@@ -180,7 +180,7 @@ filterable | Boolean           | Allows to filter options | false | false
 clearable  | Boolean           | Allows to clear selected option | false | false
 loading    | Boolean           | Indicates loading state | false | false
 options    | Array             | List of options | [] | true
-keys       | Object            | Allows for redefining each option object's keys | {label: 'label',value: 'value',image: 'image',disabled: 'disabled'} | false
+keys       | Object            | Allows for redefining each option object's keys | `{label: 'label',value: 'value',image: 'image',disabled: 'disabled'}` | false
 
 ## Events
 Name       | Description
