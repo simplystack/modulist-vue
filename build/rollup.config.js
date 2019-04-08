@@ -37,6 +37,7 @@ const globals = {
 export default [
   {
     ...baseConfig,
+    external,
     output: {
       file: 'dist/modulist-vue.esm.js',
       format: 'esm',
