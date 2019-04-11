@@ -20,7 +20,7 @@
     "prepublish": "bash scripts/prepublish.sh"
   },
   "devDependencies": {
-    "@modulist/css": "0.0.32",
+    "@modulist/css": "0.0.34",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-unit-jest": "^3.5.0",
