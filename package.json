@@ -20,7 +20,7 @@
     "prepublish": "bash scripts/prepublish.sh"
   },
   "devDependencies": {
-    "@modulist/css": "0.0.31",
+    "@modulist/css": "0.0.32",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-unit-jest": "^3.5.0",
@@ -42,7 +42,7 @@
     "vue": "^2.6.10",
     "vue-server-renderer": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.0.0-alpha.46"
+    "vuepress": "^1.0.0-alpha.47"
   },
   "husky": {
     "hooks": {
