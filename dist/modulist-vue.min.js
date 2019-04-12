@@ -1,5 +1,5 @@
 /** 
- * Modulist Vue v1.0.0-alpha.1 
+ * Modulist Vue v1.0.0-alpha.2 
  * (c) 2019 SimplyStack 
  * Released under the MIT License.
  */
