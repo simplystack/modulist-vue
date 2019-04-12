@@ -1,7 +1,10 @@
 import vue from 'rollup-plugin-vue';
 import buble from 'rollup-plugin-buble';
 import commonjs from 'rollup-plugin-commonjs';
+import banner from 'rollup-plugin-banner';
 import { terser } from 'rollup-plugin-terser';
+
+const bannerText = 'Modulist Vue v<%= pkg.version %> \n(c) 2019 SimplyStack \nReleased under the MIT License.';
 
 const baseConfig = {
   input: 'src/entry.js',
@@ -50,6 +53,7 @@ export default [
           ecma: 6,
         },
       }),
+      banner(bannerText),
     ],
   },
   {
@@ -70,6 +74,7 @@ export default [
           ecma: 6,
         },
       }),
+      banner(bannerText),
     ],
   },
   {
@@ -90,6 +95,7 @@ export default [
           ecma: 5,
         },
       }),
+      banner(bannerText),
     ],
   },
 ];
