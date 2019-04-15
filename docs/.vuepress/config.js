@@ -9,6 +9,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/components/' },
+      { text: 'Directives', link: '/directives/autofocus' },
       { text: 'Github', link: 'http://www.github.com/simplystack/modulist-vue/' },
     ],
     sidebar: [
