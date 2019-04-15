@@ -32,7 +32,7 @@ export function looseIndexOf(arr, val) {
 /**
  * Transform first letter to uppercase
  */
-export function toUpperCaseFirstLetter(string) {
+export function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
