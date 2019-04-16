@@ -47,7 +47,7 @@ Textbox is a universal component that can turn into both input and textarea.
 ## Props
 Name | Type   | Description   | Default | Required
 ---- | :----: | ------------- | ------- | --------
-id          | [String, Number] | Unique identifier                      | -       | true
+id          | [String, Number] | Unique identifier                      | -       | false
 name        | String  | Input name                       | -       | false
 value, v-model| [String, Number] | The model that the textbox value syncs to. Can be set initially as a default value. |`''` | false
 type        | String  | Supported values are `text`, `password`, `search`, `email`, `url`, `tel`, and `number`. Only applicable when `multiLine` is `false` | `text` | false

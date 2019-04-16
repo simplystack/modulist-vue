@@ -1,6 +1,6 @@
 <template>
-  <div class="textbox">
-    <label :for="id" class="textbox__label">{{ label }}</label>
+  <label class="textbox">
+    <div class="textbox__label">{{ label }}</div>
 
     <input
       v-if="!multiline"
@@ -58,7 +58,7 @@
       class="textbox__textarea"
     ></textarea>
 
-  </div>
+  </label>
 </template>
 
 <script>
@@ -72,11 +72,9 @@ export default {
   props: {
     id: {
       type: [String, Number],
-      required: true,
     },
     name: {
       type: String,
-      required: true,
     },
     label: {
       type: String,
