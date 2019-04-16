@@ -1,5 +1,5 @@
 <template>
-  <label class="textbox">
+  <label class="textbox" :class="classes">
     <div class="textbox__label">{{ label }}</div>
 
     <input
@@ -115,6 +115,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    floated: {
+      type: Boolean,
+      default: false,
+    },
     autocomplete: String,
     autofocus: {
       type: Boolean,
@@ -136,6 +140,12 @@ export default {
     },
     stepValue() {
       return this.type === 'number' ? this.step : null;
+    },
+    classes() {
+      return [
+        { 'textbox--floated': this.floated },
+        { 'textbox--floated-active': this.floated && this.value !== '' },
+      ];
     },
   },
   data() {
