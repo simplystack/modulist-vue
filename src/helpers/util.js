@@ -42,3 +42,16 @@ export function toUpperCaseFirstLetter(string) {
 export function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
+
+/**
+ * Transform object to string
+ */
+export function toString(v) {
+  if (!v) {
+    return '';
+  }
+  if (v instanceof Object) {
+    return Object.keys(v).map(k => toString(v[k])).join(' ');
+  }
+  return String(v).toLowerCase();
+}

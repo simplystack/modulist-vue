@@ -41,6 +41,7 @@ module.exports = {
           'components/select',
           'components/spinner',
           'components/stepper',
+          'components/table',
           'components/tabs',
           'components/textbox',
           'components/toggle',

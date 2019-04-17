@@ -21,6 +21,8 @@ export { default as VSelectOption } from './SelectOption';
 export { default as VSpinner } from './Spinner';
 export { default as VStepper } from './Stepper';
 export { default as VTab } from './Tab';
+export { default as VTable } from './Table';
+export { default as VTableHeader } from './Table/TableHeader';
 export { default as VTabs } from './Tabs';
 export { default as VTextbox } from './Textbox';
 export { default as VToggle } from './Toggle';
