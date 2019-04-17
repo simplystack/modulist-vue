@@ -15,7 +15,7 @@ Name       | Type     | Description | Default | Required
 ---------- | -------- | ----------- | ------- | --------
 id         | [String, Number]   | Unique identifier |    | false
 Name       | String             | Name of input element |    | false
-label      | [String, Number]   | Label text        |    | true
+label      | [String, Number]   | Label text        |    | false
 value, v-model      | any      | The model that the checkbox value syncs to. **If you are not using `v-model`, you should listen for the `input` event and update value.**        |    | true
 checked    | Boolean  | Whether or not the checkbox is checked by default. | false | false
 trueValue	 | any	    | The value that will be written to the model when the checkbox is checked | true | false

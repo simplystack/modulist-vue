@@ -35,7 +35,7 @@ export default {
     },
     label: {
       type: [String, Number],
-      required: true,
+      required: false,
     },
     value: {
       required: true,
