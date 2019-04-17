@@ -63,6 +63,7 @@ value, v-model| [String, Number] | The model that the textbox value syncs to. Ca
 type        | String  | Supported values are `text`, `password`, `search`, `email`, `url`, `tel`, and `number`. Only applicable when `multiLine` is `false` | `text` | false
 label       | String  | Label for input                         | -       | true
 placeholder | String  | Placeholder for input                   | -       | false
+wide        | Boolean | Whether input is fullwidth or not       | true       | false
 floated     | Boolean | Whether label is floated or not         | false       | false
 disabled    | Boolean | Whether input is disabled or not        | false       | false
 multiLine   | Boolean | If true, then component renders as textarea, otherwise it's input    | false       | false
@@ -74,6 +75,8 @@ min	        | Number	| The min attribute of the textbox input element. Only appl
 max	        | Number  | The max attribute of the textbox input element. Only applicable when the type prop is `number` | None | false
 step	      | [Number, String] | The step attribute of the textbox input element. Only applicable when the type prop is `number`. | 'any' | false
 maxlength |	Number | The maxlength attribute of the input and textarea elements | None | false
+error |	Boolean | Show error state if true | false | false
+error-text |	String | Error text for error state, displaying only when `error` prop is true | None | false
 
 ## Events
 Name          | Params       | Description

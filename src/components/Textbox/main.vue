@@ -1,6 +1,6 @@
 <template>
   <label class="textbox" :class="classes">
-    <div class="textbox__label">{{ label }}</div>
+    <span class="textbox__label">{{ label }}</span>
 
     <input
       v-if="!multiline"
@@ -57,6 +57,8 @@
       ref="textarea"
       class="textbox__textarea"
     ></textarea>
+
+    <span class="textbox__error" v-if="error && errorText">{{ errorText }}</span>
 
   </label>
 </template>
@@ -119,6 +121,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    wide: {
+      type: Boolean,
+      default: true,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errorText: {
+      type: String,
+    },
     autocomplete: String,
     autofocus: {
       type: Boolean,
@@ -145,6 +158,8 @@ export default {
       return [
         { 'textbox--floated': this.floated },
         { 'textbox--floated-active': this.floated && this.value !== '' },
+        { 'textbox--wide': this.wide },
+        { 'textbox--error': this.error },
       ];
     },
   },
