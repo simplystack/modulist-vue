@@ -41,7 +41,7 @@
 
 <script>
 import VButton from '../Button';
-import { toUpperCaseFirstLetter } from '../../helpers/util';
+import { capitalize } from '../../helpers/util';
 
 export default {
   name: 'VNotification',
@@ -74,7 +74,7 @@ export default {
   },
   computed: {
     computedTitle() {
-      return this.title ? this.title : toUpperCaseFirstLetter(this.type);
+      return this.title ? this.title : capitalize(this.type);
     },
     classes() {
       return [

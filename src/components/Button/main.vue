@@ -24,7 +24,7 @@ export default {
     },
     size: {
       type: String,
-      default: '3',
+      default: '4',
       validator(appearance) {
         return ['0', '1', '2', '3', '4'].indexOf(appearance) > -1;
       },
@@ -41,6 +41,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    wide: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -49,6 +53,7 @@ export default {
         `button--size-${this.size}`,
         { 'button--loading': this.loading },
         { 'button--icon-first': this.iconFirst },
+        { 'button--wide': this.wide },
       ];
     },
   },

@@ -1,6 +1,6 @@
 <template>
-  <div class="textbox">
-    <label :for="id" class="textbox__label">{{ label }}</label>
+  <label class="textbox" :class="classes">
+    <span class="textbox__label">{{ label }}</span>
 
     <input
       v-if="!multiline"
@@ -58,7 +58,9 @@
       class="textbox__textarea"
     ></textarea>
 
-  </div>
+    <span class="textbox__error" v-if="error && errorText">{{ errorText }}</span>
+
+  </label>
 </template>
 
 <script>
@@ -72,11 +74,9 @@ export default {
   props: {
     id: {
       type: [String, Number],
-      required: true,
     },
     name: {
       type: String,
-      required: true,
     },
     label: {
       type: String,
@@ -117,6 +117,21 @@ export default {
       type: Boolean,
       default: false,
     },
+    floated: {
+      type: Boolean,
+      default: false,
+    },
+    wide: {
+      type: Boolean,
+      default: true,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errorText: {
+      type: String,
+    },
     autocomplete: String,
     autofocus: {
       type: Boolean,
@@ -138,6 +153,14 @@ export default {
     },
     stepValue() {
       return this.type === 'number' ? this.step : null;
+    },
+    classes() {
+      return [
+        { 'textbox--floated': this.floated },
+        { 'textbox--floated-active': this.floated && this.value !== '' },
+        { 'textbox--wide': this.wide },
+        { 'textbox--error': this.error },
+      ];
     },
   },
   data() {

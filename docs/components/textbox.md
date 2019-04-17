@@ -1,13 +1,10 @@
 # Textbox <badge text="stable" />
 Textbox is a universal component that can turn into both input and textarea.
 
-## Example
-
-<div class="p-3 border rounded-2 my-3">
+## Default
+<div class="p-3 border rounded-2 my-3 flex flex-column">
   <v-textbox
     class="mb-3"
-    id="input1"
-    name="input1"
     label="Your name"
     placeholder="Enter your name"
     v-model="value1"
@@ -15,8 +12,6 @@ Textbox is a universal component that can turn into both input and textarea.
 
   <v-textbox
     multiline
-    id="input2"
-    name="input2"
     label="Comment"
     placeholder="Start typing here..."
     v-model="value2"
@@ -26,8 +21,6 @@ Textbox is a universal component that can turn into both input and textarea.
 ```html
   <!-- Input -->
   <v-textbox
-    id="input1"
-    name="input1"
     label="Your name"
     placeholder="Enter your name"
     v-model="value1"
@@ -36,24 +29,43 @@ Textbox is a universal component that can turn into both input and textarea.
   <!-- Textarea -->
   <v-textbox
     multiline
-    id="input2"
-    name="input2"
     label="Comment"
     placeholder="Start typing here..."
     v-model="value2"
   ></v-textbox>
 ```
 
+## Floated
+<div class="p-3 border rounded-2 my-3 flex flex-column">
+  <v-textbox
+    floated
+    class="mb-3"
+    label="Your name"
+    placeholder="Enter your name"
+    v-model="value1"
+  ></v-textbox>
+
+  <v-textbox
+    floated
+    multiline
+    label="Comment"
+    placeholder="Start typing here..."
+    v-model="value2"
+  ></v-textbox>
+</div>
+
 ## Props
 Name | Type   | Description   | Default | Required
 ---- | :----: | ------------- | ------- | --------
-id          | [String, Number] | Unique identifier                      | -       | true
+id          | [String, Number] | Unique identifier                      | -       | false
 name        | String  | Input name                       | -       | false
 value, v-model| [String, Number] | The model that the textbox value syncs to. Can be set initially as a default value. |`''` | false
 type        | String  | Supported values are `text`, `password`, `search`, `email`, `url`, `tel`, and `number`. Only applicable when `multiLine` is `false` | `text` | false
 label       | String  | Label for input                         | -       | true
 placeholder | String  | Placeholder for input                   | -       | false
-disabled    | String  | Whether input is disabled or not        | false       | false
+wide        | Boolean | Whether input is fullwidth or not       | true       | false
+floated     | Boolean | Whether label is floated or not         | false       | false
+disabled    | Boolean | Whether input is disabled or not        | false       | false
 multiLine   | Boolean | If true, then component renders as textarea, otherwise it's input    | false       | false
 rows        | Number  | Rows of textare. Only works if multiline property is true    | 2       | false
 readonly    | Boolean | Whether input is readonly or not        | false       | false
@@ -63,6 +75,8 @@ min	        | Number	| The min attribute of the textbox input element. Only appl
 max	        | Number  | The max attribute of the textbox input element. Only applicable when the type prop is `number` | None | false
 step	      | [Number, String] | The step attribute of the textbox input element. Only applicable when the type prop is `number`. | 'any' | false
 maxlength |	Number | The maxlength attribute of the input and textarea elements | None | false
+error |	Boolean | Show error state if true | false | false
+error-text |	String | Error text for error state, displaying only when `error` prop is true | None | false
 
 ## Events
 Name          | Params       | Description
