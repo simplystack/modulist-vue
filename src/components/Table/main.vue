@@ -2,10 +2,10 @@
   <div class="table-responsive">
 
     <slot
-      name="toolbar"
+      name="header"
       :items="items"
       :selected="mutableSelected"
-      :handleSearchInput="{ input: value => query = value }"
+      :handleSearchInput="value => query = value"
       :disabledSearch="items.length === 0"
     ></slot>
 
@@ -133,7 +133,7 @@ export default {
     },
     emptyFilteredText: {
       type: String,
-      default: 'There are no records matching your request',
+      default: 'There are no records matching your request.',
     },
   },
   data() {
