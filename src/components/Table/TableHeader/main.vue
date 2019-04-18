@@ -2,16 +2,24 @@
   <div class="table-header">
     <h2 class="table-header__title">{{ title }}</h2>
 
-    <v-textbox
-      floated
-      label="Search"
-      v-if="searchable"
-      v-on="handleSearchInput"
-      class="table-header__search"
-      type="text"
-      placeholder="Search"
-      :disabled="disabledSearch"
-    />
+    <div class="table-header__actions">
+      <div class="table-header__search" v-if="searchable">
+        <v-textbox
+          @input="handleSearchInput.input"
+          floated
+          label="Search"
+          type="text"
+          placeholder="Search"
+          :wide="false"
+          :disabled="disabledSearch"
+        />
+      </div>
+
+      <div class="table-header__action" v-if="$scopedSlots.action">
+        <slot name="action"></slot>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -37,14 +45,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  .table-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .table-header__title {
-    margin: 0;
-  }
-</style>

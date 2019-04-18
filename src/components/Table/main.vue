@@ -1,14 +1,15 @@
 <template>
-  <div class="table-wrapper">
+  <div class="table-responsive">
 
     <slot
       name="toolbar"
       :items="items"
-      :handleSearchInput="{ input: (e) => query = e.target.value }"
+      :selected="mutableSelected"
+      :handleSearchInput="{ input: value => query = value }"
       :disabledSearch="items.length === 0"
     ></slot>
 
-    <table>
+    <table class="table">
 
       <thead>
       <tr v-if="!(items.length === 0 || items.length > 0 && mutableItems.length === 0)">
@@ -30,16 +31,12 @@
               ? 'table-sorting'
               : null,
             sortBy===key
-              ? 'sorting--' + (sortDesc?'desc':'asc')
+              ? 'table-sorting--' + (sortDesc?'desc':'asc')
               : '',
             field.class ? field.class : null
           ]"
         >
-          <span
-            v-html="field.label"
-            v-if="field.label"
-            class="table-sorting__icon table-sorting__label"
-          ></span>
+          <span v-html="field.label" v-if="field.label" class="table-sorting__label"></span>
         </th>
       </tr>
       </thead>
@@ -47,7 +44,7 @@
       <tbody>
       <tr v-if="items.length === 0" :colspan="Object.keys(fields).length">
         <slot name="empty">
-          <div style="text-align:center;" v-html="emptyText"></div>
+          <div class="table-empty" v-html="emptyText"></div>
         </slot>
       </tr>
 
@@ -77,12 +74,16 @@
         :colspan="Object.keys(fields).length"
       >
         <slot name="emptyfiltered">
-          <div style="text-align:center;" v-html="emptyFilteredText"></div>
+          <div class="table-empty" v-html="emptyFilteredText"></div>
         </slot>
       </tr>
       </tbody>
 
     </table>
+
+    <div class="table-pagination" v-if="$scopedSlots.pagination">
+      <slot name="pagination" :total="items.length" :perPage="perPage"></slot>
+    </div>
 
   </div>
 </template>
@@ -98,6 +99,10 @@ const defaultSortCompare = (a, b, sortBy) => (
 export default {
   name: 'VTable',
   props: {
+    value: {
+      type: Array,
+      default: () => [],
+    },
     fields: {
       type: Object,
       default: () => {},
@@ -124,7 +129,7 @@ export default {
     },
     emptyText: {
       type: String,
-      default: 'There is no records...',
+      default: 'There is no records.',
     },
     emptyFilteredText: {
       type: String,
@@ -144,6 +149,7 @@ export default {
       let items = this.items.slice();
 
       if (this.query) {
+        this.clearSelection();
         items = items.filter(item => fuzzysearch(this.query, toString(item)));
       }
 
@@ -202,27 +208,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  .table-wrapper {
-    width: 100%;
-  }
-
-  .table-wrapper table {
-    display: table;
-    width: 100%;
-  }
-
-  .table-select-td {
-    width: 24px;
-  }
-
-  table {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  table thead th {
-    text-align: left;
-  }
-</style>
