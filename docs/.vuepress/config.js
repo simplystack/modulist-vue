@@ -58,6 +58,7 @@ module.exports = {
       }
     ]
   },
+  plugins: ['@vuepress/register-components'],
   markdown: {
     lineNumbers: true
   }
