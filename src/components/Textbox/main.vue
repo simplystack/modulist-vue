@@ -93,6 +93,13 @@ export default {
     placeholder: {
       type: String,
     },
+    size: {
+      type: String,
+      default: '4',
+      validator(size) {
+        return ['3', '4'].indexOf(size) > -1;
+      },
+    },
     tabindex: [String, Number],
     multiline: {
       type: Boolean,
@@ -156,6 +163,7 @@ export default {
     },
     classes() {
       return [
+        `textbox--size-${this.size}`,
         { 'textbox--floated': this.floated },
         { 'textbox--floated-active': this.floated && this.value !== '' },
         { 'textbox--wide': this.wide },
