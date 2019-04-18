@@ -52,6 +52,7 @@ export default {
         `button--${this.appearance}`,
         `button--size-${this.size}`,
         { 'button--loading': this.loading },
+        { 'button--icon-only': !this.$slots.default },
         { 'button--icon-first': this.iconFirst },
         { 'button--wide': this.wide },
       ];
