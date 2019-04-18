@@ -26,10 +26,41 @@ export default {
 };
 ```
 
+## Custom template
+<div class="p-3 pb-5 border rounded-2 my-3 flex">
+  <v-table :fields="normal.fields" :items="normal.items">
+    <template v-slot:name="{ item }">
+      <div class="text-bold">{{ item.name }}</div>
+      <div class="text-secondary">Unique identifier: {{ item.id }}</div>
+    </template>
+  </v-table>
+</div>
+
+```html
+<v-table :fields="normal.fields" :items="normal.items" />
+```
+```javascript
+export default {
+  data() {
+    return {
+      fields: {
+        name: { label: 'Name', sortable: true },
+        createdAt: { label: 'Created', sortable: false },
+      },
+      items: [
+        { id: 1, name: 'Item 1', createdAt: '1 days ago', },
+        { id: 2, name: 'Item 2', createdAt: '2 days ago', },
+        { id: 3, name: 'Item 3', createdAt: '3 days ago', },
+      ],
+    };
+  }
+};
+```
+
 ## Title & Search
 <div class="p-3 pb-5 border rounded-2 my-3">
   <v-table :fields="normal.fields" :items="normal.items">
-    <template v-slot:toolbar="{ handleSearchInput, selected }">
+    <template v-slot:header="{ handleSearchInput, selected }">
       <v-table-header
         title="Custom title"
         :handleSearchInput="handleSearchInput"
@@ -37,7 +68,7 @@ export default {
         <template v-slot:action>
           <v-dropdown placement="bottom-end" :options="[{ label: 'Share' }, { label: 'Remove' }]">
             <template v-slot:toggle>
-              <v-button appearance="alternative">Actions</v-button>
+              <v-button size="3" appearance="alternative">Actions</v-button>
             </template>
           </v-dropdown>
         </template>
@@ -50,7 +81,7 @@ export default {
 <v-table :fields="normal.fields" :items="normal.items">
 
   <!--custom header-->
-  <template v-slot:toolbar="{ handleSearchInput }">
+  <template v-slot:header="{ handleSearchInput }">
     <v-table-header
       title="Custom title"
       :handleSearchInput="handleSearchInput"
@@ -124,7 +155,7 @@ export default {
 ## Pagination
 <div class="p-3 pb-5 border rounded-2 my-3">
   <v-table :per-page="5" :current-page="pagination.currentPage":fields="pagination.fields" :items="pagination.items">
-    <template v-slot:toolbar="{ handleSearchInput, selected }">
+    <template v-slot:header="{ handleSearchInput, selected }">
       <v-table-header title="Custom title" :handleSearchInput="handleSearchInput"></v-table-header>
     </template>
     <template v-slot:pagination="{ total, perPage }">
@@ -139,7 +170,7 @@ export default {
   :fields="pagination.fields"
   :items="pagination.items"
 >
-  <template v-slot:toolbar="{ handleSearchInput, selected }">
+  <template v-slot:header="{ handleSearchInput, selected }">
     <v-table-header
       title="Custom title"
       :handleSearchInput="handleSearchInput"
@@ -155,6 +186,34 @@ export default {
   </template>
 
 </v-table>
+```
+```javascript
+export default {
+  data() {
+    return {
+      pagination: {
+        currentPage: 1,
+         fields: {
+          name: { label: 'Name', sortable: true },
+          createdAt: { label: 'Created', sortable: false },
+        },
+        items: [
+          { id: 1, name: 'Item 1', createdAt: '2 days ago' },
+          { id: 2, name: 'Item 2', createdAt: 'just now' },
+          { id: 3, name: 'Item 3', createdAt: '1 day ago' },
+          { id: 4, name: 'Item 4', createdAt: '1 week ago' },
+          { id: 5, name: 'Item 5', createdAt: 'just now' },
+          { id: 6, name: 'Item 6', createdAt: '3 years ago' },
+          { id: 7, name: 'Item 7', createdAt: '1 week ago' },
+          { id: 8, name: 'Item 8', createdAt: '1 week ago' },
+          { id: 9, name: 'Item 9', createdAt: '1 week ago' },
+          { id: 10, name: 'Item 10', createdAt: '9 week ago' },
+          ...
+        ],
+      },
+    };
+  },
+};
 ```
 
 <script>
@@ -228,3 +287,37 @@ export default {
   },
 };
 </script>
+
+## Table Props
+Name       | Type     | Description | Default   | Required
+---------- | -------- | ----------- | --------- | --------
+value      | Array    | Returns selected values | [] | false
+fields     | Object   | Columns labels          | {} | false
+items      | Array    | Data                    | [] | false
+multiSelect| Boolean  | If true user can select multiple values | false | false
+perPage     | Number  | How many items to render per page | 10 | false
+currentPage | Number  | Current page for pagination | 1 | false
+sortCompare | Function | Custom function to perform sort | null | false
+emptyText  | String   | Text for state when no data found | 'There is no records.' | false
+emptyFilteredText | String | Text for state when search results not found | 'There are no records matching your request' | false
+
+## Table Slots
+Name    | Props     | Description
+------- | --------- | -----------
+header  | items, selected, handleSearchInput, disabledSearch | Slot for table header
+{key} field name    | value, item, index | Slot for custom cell
+pagination | total, perPage | Slot for pagination
+
+## TableHeader Props
+Name       | Type     | Description | Default
+---------- | -------- | ----------- | ---------
+title      | String   | Appearance of spinner ['default', 'primary']  | 'Table title'
+searchable | Boolean  | Display search or not | false
+handleSearchInput | Function | Function from table to keep `query` up to date to filter data properly. Required when `searchable` is `true`. | None | false
+disabledSearch | Boolean | 
+
+## TableHeader Slots
+Name    | Props     | Description
+------- | --------- | -----------
+title   | None      | Slot for title
+action  | None      | Slot for action
