@@ -1,11 +1,13 @@
 <template>
   <div class="table-header">
-    <h2 class="table-header__title">{{ title }}</h2>
+    <slot name="title">
+      <h2 class="table-header__title">{{ title }}</h2>
+    </slot>
 
     <div class="table-header__actions">
       <div class="table-header__search" v-if="searchable">
         <v-textbox
-          @input="handleSearchInput.input"
+          @input="handleSearchInput"
           floated
           label="Search"
           type="text"
@@ -37,8 +39,7 @@ export default {
       default: true,
     },
     handleSearchInput: {
-      type: Object,
-      default: () => {},
+      type: Function,
     },
     disabledSearch: {
       type: Boolean,
