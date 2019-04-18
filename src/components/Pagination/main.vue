@@ -2,6 +2,7 @@
   <ul class="pagination">
     <li class="pagination__item">
       <v-button
+        :size="size"
         @click="onClickFirstPage"
         aria-label="Go to first page"
         :disabled="isInFirstPage"
@@ -12,6 +13,7 @@
 
     <li class="pagination__item">
       <v-button
+        :size="size"
         @click.prevent="onClickPreviousPage"
         aria-label="Go to previous page"
         :disabled="isInFirstPage"
@@ -22,6 +24,7 @@
 
     <li v-for="(page, i) in pages" :key="i" class="pagination__item">
       <v-button
+        :size="size"
         @click.prevent="onClickPage(page.name)"
 
         :appearance="isPageActive(page.name) ? 'primary' : 'default'"
@@ -35,6 +38,7 @@
 
     <li class="pagination__item">
       <v-button
+        :size="size"
         @click="onClickNextPage"
         :disabled="isInLastPage"
         aria-label="Go to next page"
@@ -45,6 +49,7 @@
 
     <li class="pagination__item">
       <v-button
+        :size="size"
         @click="onClickLastPage"
         :disabled="isInLastPage"
         aria-label="Go to last page"
@@ -76,6 +81,10 @@ export default {
     perPage: {
       type: Number,
       default: 10,
+    },
+    size: {
+      type: String,
+      default: '4',
     },
   },
   data() {
