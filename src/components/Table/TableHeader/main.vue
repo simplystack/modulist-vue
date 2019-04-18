@@ -10,6 +10,7 @@
           label="Search"
           type="text"
           placeholder="Search"
+          size="3"
           :wide="false"
           :disabled="disabledSearch"
         />
