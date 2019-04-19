@@ -127,6 +127,7 @@ size       | String   | Button size, ['1', '2', '3', '4'] | '3'
 disabled   | Boolean  | Whether button disabled or not | false
 loading    | Boolean  | Whether button in loading state or not | false
 icon-first | Boolean  | Set to `true` if you want to render icon before text | false
+inverted   | Boolean  | Set to `true` in order to use button on dark background | false
 
 ## Slots
 Name     | Slot props       | Description

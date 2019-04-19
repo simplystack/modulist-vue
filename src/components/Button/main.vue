@@ -45,6 +45,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    inverted: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -55,6 +59,7 @@ export default {
         { 'button--icon-only': !this.$slots.default },
         { 'button--icon-first': this.iconFirst },
         { 'button--wide': this.wide },
+        { 'button--inverted': this.inverted },
       ];
     },
   },
