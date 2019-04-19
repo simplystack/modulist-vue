@@ -2,7 +2,7 @@
   "name": "@modulist/vue",
   "description": "Vue components for the Modulist Design System",
   "author": "SimplyStack",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.10",
   "main": "dist/modulist-vue.common.js",
   "module": "src/entry.js",
   "unpkg": "dist/modulist-vue.min.js",

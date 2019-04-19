@@ -40,6 +40,7 @@ export default {
     },
     handleSearchInput: {
       type: Function,
+      default: () => {},
     },
     disabledSearch: {
       type: Boolean,
