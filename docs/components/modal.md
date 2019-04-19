@@ -6,11 +6,11 @@ A classic modal overlay, in which you can include any content you want.
   <v-button @click="open('modal1')" appearance="primary">Open modal 1</v-button>
   <v-modal :open="modal1" @close="close('modal1')" title="Modal 1">
     Modal content
-    <template slot="footer">
-      <v-button @click="close('modal1')" appearance="subtle">
-        Close
-      </v-button>
-      <v-button appearance="primary">Apply changes</v-button>
+    <template v-slot:footer>
+      <div class="flex flex-justify-end">
+        <v-button class="mr-2" @click="close('modal1')" appearance="subtle">Close</v-button>
+        <v-button appearance="primary">Apply changes</v-button>
+      </div>
     </template>
   </v-modal>
 </div>

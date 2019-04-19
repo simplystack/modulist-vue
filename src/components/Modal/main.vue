@@ -1,6 +1,6 @@
 <template>
   <transition name="modal" @after-enter="onEnter" @after-leave="onLeave">
-    <div class="modal modal__mask" v-show="open" :role="role" :class="classes">
+    <div class="modal modal__mask" v-if="open" :role="role" :class="classes">
       <div ref="backdrop" class="modal__wrapper" @click="dismissOnBackdrop && close($event)">
         <div
           ref="container"
