@@ -2,7 +2,7 @@
 
 ## Default
 <div class="p-3 pb-5 border rounded-2 my-3 flex">
-  <v-table :fields="normal.fields" :items="normal.items" />
+  <v-table :ready="false" :fields="normal.fields" :items="normal.items" />
 </div>
 
 ```html
@@ -291,6 +291,7 @@ export default {
 ## Table Props
 Name       | Type     | Description | Default   | Required
 ---------- | -------- | ----------- | --------- | --------
+ready      | Boolean    | Show loading if false. Allowing to load data in async way | true | false
 value      | Array    | Returns selected values | [] | false
 fields     | Object   | Columns labels          | {} | false
 items      | Array    | Data                    | [] | false
@@ -314,7 +315,7 @@ Name       | Type     | Description | Default
 title      | String   | Appearance of spinner ['default', 'primary']  | 'Table title'
 searchable | Boolean  | Display search or not | false
 handleSearchInput | Function | Function from table to keep `query` up to date to filter data properly. Required when `searchable` is `true`. | None | false
-disabledSearch | Boolean | 
+disabledSearch | Boolean |
 
 ## TableHeader Slots
 Name    | Props     | Description

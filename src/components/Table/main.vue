@@ -9,7 +9,11 @@
       :disabledSearch="items.length === 0"
     ></slot>
 
-    <table class="table">
+    <div class="table-spinner" v-if="!ready">
+      <v-spinner />
+    </div>
+
+    <table class="table" v-else>
 
       <thead>
       <tr v-if="!(items.length === 0 || items.length > 0 && mutableItems.length === 0)">
@@ -90,6 +94,7 @@
 
 <script>
 import fuzzysearch from 'fuzzysearch';
+import VSpinner from '../Spinner';
 import { toString } from '../../helpers/util';
 
 const defaultSortCompare = (a, b, sortBy) => (
@@ -99,6 +104,10 @@ const defaultSortCompare = (a, b, sortBy) => (
 export default {
   name: 'VTable',
   props: {
+    ready: {
+      type: Boolean,
+      default: true,
+    },
     value: {
       type: Array,
       default: () => [],
@@ -206,5 +215,6 @@ export default {
       this.selected = [...this.mutableItems];
     },
   },
+  components: { VSpinner },
 };
 </script>
