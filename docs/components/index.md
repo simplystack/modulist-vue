@@ -6,7 +6,7 @@ Flash messages, or alerts, inform users of successful or pending actions. Use th
 <div class="p-3 border rounded-2 my-3">
   <v-alert title="Information" type="info" class="mb-3">Information text</v-alert>
   <v-alert title="Success" type="success" class="mb-3">Success text</v-alert>
-  <v-alert title="Warning" type="warn" class="mb-3">Warning text</v-alert>
+  <v-alert title="Warning" type="warning" class="mb-3">Warning text</v-alert>
   <v-alert title="Error" type="error">Error text</v-alert>
 </div>
 
@@ -20,7 +20,7 @@ Flash messages, or alerts, inform users of successful or pending actions. Use th
 ## Props
 Name       | Type     | Description | Default
 ---------- | -------- | ----------- | -----
-type       | String   | There are 4 types: ['info', 'success', 'warn', 'error'] | 'info'
+type       | String   | There are 4 types: ['info', 'success', 'warning', 'error'] | 'info'
 title      | String   | Title of alert | 'Default title'
 
 ## Slots
