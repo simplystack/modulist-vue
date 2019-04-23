@@ -126,7 +126,7 @@ export default {
     },
     floated: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     wide: {
       type: Boolean,

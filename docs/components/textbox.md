@@ -64,7 +64,7 @@ type        | String  | Supported values are `text`, `password`, `search`, `emai
 label       | String  | Label for input                         | -       | true
 placeholder | String  | Placeholder for input                   | -       | false
 wide        | Boolean | Whether input is fullwidth or not       | true       | false
-floated     | Boolean | Whether label is floated or not         | false       | false
+floated     | Boolean | Whether label is floated or not         | true       | false
 disabled    | Boolean | Whether input is disabled or not        | false       | false
 multiLine   | Boolean | If true, then component renders as textarea, otherwise it's input    | false       | false
 rows        | Number  | Rows of textare. Only works if multiline property is true    | 2       | false
