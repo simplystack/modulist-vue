@@ -26,7 +26,7 @@ The custom select and it's states.
 
 <div class="p-3 border rounded-2 my-3">
   <v-select 
-    name="multiple-select" 
+    name="multipleselect" 
     v-model="select2" 
     multiple 
     label="Multiple select"
@@ -131,41 +131,6 @@ The custom select and it's states.
 </v-select>
 ```
 
-<script>
-export default {
-  data() {
-    return { 
-      select1: {},
-      select2: [],
-      select3: {},
-      select4: {},
-      select5: {},
-      options: [
-        { id: 1, value: 'value1', label: 'Option 1' },
-        { id: 2, value: 'value2', label: 'Option 2' },
-        { id: 3, value: 'value3', label: 'Option 3', disabled: true },
-        { id: 4, value: 'value4', label: 'Option 4' },
-        { id: 5, value: 'value5', label: 'Option 5' },
-        { id: 6, value: 'value6', label: 'Option 6' },
-        { id: 7, value: 'value7', label: 'Option 7' },
-        { id: 8, value: 'value8', label: 'Option 8' },
-        { id: 9, value: 'value9', label: 'Option 9' },
-        { id: 10, value: 'value10', label: 'Option 10' },
-        { id: 11, value: 'value11', label: 'Option 11' },
-        { id: 12, value: 'value12', label: 'Option 12' },
-        { id: 13, value: 'value13', label: 'Option 13' },
-        { id: 14, value: 'value14', label: 'Option 14' },
-        { id: 15, value: 'value15', label: 'Option 15' },
-        { id: 16, value: 'value16', label: 'Option 16' },
-        { id: 17, value: 'value17', label: 'Option 17' },
-        { id: 18, value: 'value18', label: 'Option 18' },
-        { id: 19, value: 'value19', label: 'Option 19' },
-      ],
-    };
-  },
-};
-</script>
-
 ## Props
 Name       | Type              | Description       | Default | Required
 ---------- | ----------------- | ----------------- | ------- | --------
@@ -202,3 +167,38 @@ reset()    | Call this method to reset the select value
 Name       | Description
 ---------- | -----------------
 option     | This slot can be used to render a custom template for each option in select
+
+<script>
+export default {
+  data() {
+    return { 
+      select1: {},
+      select2: [],
+      select3: {},
+      select4: {},
+      select5: {},
+      options: [
+        { id: 1, value: 'value1', label: 'Option 1' },
+        { id: 2, value: 'value2', label: 'Option 2' },
+        { id: 3, value: 'value3', label: 'Option 3', disabled: true },
+        { id: 4, value: 'value4', label: 'Option 4' },
+        { id: 5, value: 'value5', label: 'Option 5' },
+        { id: 6, value: 'value6', label: 'Option 6' },
+        { id: 7, value: 'value7', label: 'Option 7' },
+        { id: 8, value: 'value8', label: 'Option 8' },
+        { id: 9, value: 'value9', label: 'Option 9' },
+        { id: 10, value: 'value10', label: 'Option 10' },
+        { id: 11, value: 'value11', label: 'Option 11' },
+        { id: 12, value: 'value12', label: 'Option 12' },
+        { id: 13, value: 'value13', label: 'Option 13' },
+        { id: 14, value: 'value14', label: 'Option 14' },
+        { id: 15, value: 'value15', label: 'Option 15' },
+        { id: 16, value: 'value16', label: 'Option 16' },
+        { id: 17, value: 'value17', label: 'Option 17' },
+        { id: 18, value: 'value18', label: 'Option 18' },
+        { id: 19, value: 'value19', label: 'Option 19' },
+      ],
+    };
+  },
+};
+</script>

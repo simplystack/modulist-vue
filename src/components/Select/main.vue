@@ -1,12 +1,12 @@
 <template>
-  <label
+  <div
     class="select"
     :class="classes"
 
     v-clickoutside="handleClickOutside"
   >
 
-    <div v-if="showLabel" class="select__label">{{ label }}</div>
+    <label v-if="showLabel" class="select__label">{{ label }}</label>
 
     <input
       type="hidden"
@@ -124,7 +124,7 @@
 
     </div>
 
-  </label>
+  </div>
 </template>
 
 <script>
