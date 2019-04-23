@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown">
-    <Popover
+    <v-popover
       ref="popover"
       contain-focus
 
@@ -12,19 +12,19 @@
       <div class="dropdown__toggle" slot="toggle">
         <slot name="toggle"></slot>
       </div>
-      <Menu
+      <v-menu
         @select="onSelect"
         @close="$refs.popover.close()"
         :options="options"
         :contain-focus="containFocus"
-      ></Menu>
-    </Popover>
+      />
+    </v-popover>
   </div>
 </template>
 
 <script>
-import Popover from '../Popover';
-import Menu from '../Menu';
+import VPopover from '../Popover';
+import VMenu from '../Menu';
 
 export default {
   name: 'VDropdown',
@@ -60,8 +60,8 @@ export default {
     },
   },
   components: {
-    Popover,
-    Menu,
+    VPopover,
+    VMenu,
   },
 };
 </script>
