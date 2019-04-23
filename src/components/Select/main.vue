@@ -1,21 +1,16 @@
 <template>
-  <div
+  <label
     class="select"
     :class="classes"
 
     v-clickoutside="handleClickOutside"
   >
 
-    <label
-      class="select__label"
-      :for="name || id"
-    >
-      {{ label }}
-    </label>
+    <div v-if="showLabel" class="select__label">{{ label }}</div>
 
     <input
       type="hidden"
-      :name="name || id"
+      :name="name"
       :value="value.value"
       :disabled="disabled"
     >
@@ -129,7 +124,7 @@
 
     </div>
 
-  </div>
+  </label>
 </template>
 
 <script>
@@ -163,6 +158,10 @@ export default {
     value: {
       type: [Array, Object],
       required: true,
+    },
+    showLabel: {
+      type: Boolean,
+      default: false,
     },
     multiple: {
       type: Boolean,

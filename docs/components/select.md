@@ -175,6 +175,7 @@ label      | String            | Select label      | 'Label' | false
 tabindex   | [String, Number]  | Select tabindex   | None    | false
 value, v-model | [Array, Object] | The model that the select value syncs to. If you are not using `v-model`, you should listen for the `input` event and update `value`.   | None    | true
 placeholder| String         | Select placeholder | 'Placeholder'    | false
+showLabel   | Boolean           | Show label or not | false | false
 multiple   | Boolean           | Allows to select multiple options | false | false
 filterable | Boolean           | Allows to filter options | false | false
 clearable  | Boolean           | Allows to clear selected option | false | false
