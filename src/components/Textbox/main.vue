@@ -58,7 +58,7 @@
       class="textbox__textarea"
     ></textarea>
 
-    <span class="textbox__error" v-if="error && errorText">{{ errorText }}</span>
+    <span class="textbox__message" v-if="error && errorText">{{ errorText }}</span>
 
   </label>
 </template>
