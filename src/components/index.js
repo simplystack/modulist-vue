@@ -6,6 +6,7 @@ export { default as VCheckbox } from './Checkbox';
 export { default as VCheckboxGroup } from './CheckboxGroup';
 export { default as VChip } from './Chip';
 export { default as VDropdown } from './Dropdown';
+export { default as VIcon } from './Icon';
 export { default as VMenu } from './Menu';
 export { default as VMenuOption } from './MenuOption';
 export { default as VModal } from './Modal';
