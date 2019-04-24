@@ -1,8 +1,8 @@
 <template>
   <div class="popover" @keydown.esc="close" :class="{'popover--has-max-height': hasMaxHeight}">
-    <div class="popover__trigger" ref="trigger">
-      <slot name="toggle"></slot>
-    </div>
+
+    <slot name="toggle"></slot>
+
     <div
       ref="content"
       role="dialog"
@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     triggerEl() {
-      return this.$refs.trigger;
+      return this.$el.children[0];
     },
     popperOptions() {
       return {
@@ -131,7 +131,7 @@ export default {
       this.focusedElBeforeOpen = document.activeElement;
 
       this.isActive = true;
-      this.initializePopper();
+      this.initPopper();
       this.$nextTick(() => {
         this.$el.focus();
       });
@@ -160,7 +160,7 @@ export default {
         this.$el.focus();
       }
     },
-    initializePopper() {
+    initPopper() {
       this.$nextTick(() => {
         this.popperInstance = new Popper(this.triggerEl, this.$refs.content, this.popperOptions);
       });
