@@ -9,9 +9,11 @@
       :disabled="disabled"
       :placement="placement"
     >
-      <div class="dropdown__toggle" slot="toggle">
+
+      <template v-slot:toggle>
         <slot name="toggle"></slot>
-      </div>
+      </template>
+
       <v-menu
         @select="onSelect"
         @close="$refs.popover.close()"

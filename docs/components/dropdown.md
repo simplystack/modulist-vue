@@ -5,10 +5,18 @@ Dropdown component is a wrapper which contains Popover component and Menu.
 <div class="p-3 border rounded-2 my-3">
   <v-dropdown contain-focus :options="options">
     <template v-slot:toggle>
-      <v-button  appearance="primary">Open dropdown</v-button>
+      <v-button appearance="primary">Open dropdown</v-button>
     </template>
   </v-dropdown>
 </div>
+
+```html
+<v-dropdown contain-focus :options="options">
+  <template v-slot:toggle>
+    <v-button appearance="primary">Open dropdown</v-button>
+  </template>
+</v-dropdown>
+```
 
 ## Props
 Name               | Type      | Description     | Default | Required
