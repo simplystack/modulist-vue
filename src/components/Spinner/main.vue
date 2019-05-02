@@ -8,7 +8,10 @@ export default {
   props: {
     appearance: {
       type: String,
-      default: 'default',
+      default: 'primary',
+      validator(appearance) {
+        return ['default', 'primary'].indexOf(appearance) > -1;
+      },
     },
   },
   computed: {
