@@ -1,18 +1,7 @@
 <template>
   <div class="notification" :class="classes">
       <div class="notification__icon">
-        <svg v-if="type === 'info'" width="20" height="20">
-          <use xlink:href="info-icon"></use>
-        </svg>
-        <svg v-if="type === 'success'" width="20" height="20">
-          <use xlink:href="success-icon"></use>
-        </svg>
-        <svg v-if="type === 'warning'" width="20" height="16">
-          <use xlink:href="warning-icon"></use>
-        </svg>
-        <svg v-if="type === 'error'" width="20" height="20">
-          <use xlink:href="error-icon"></use>
-        </svg>
+        <v-icon :name="`${type}-icon`" width="20" height="20" />
       </div>
       <div class="notification__content">
         <div class="notification__title">{{ computedTitle }}</div>
@@ -31,9 +20,9 @@
       </div>
       <div class="notification__close" v-if="dismissible">
         <v-button appearance="subtle" size="1" @click.stop="onClose($event)">
-          <svg slot="icon" width="14" height="14">
-            <use xlink:href="#cross-icon"></use>
-          </svg>
+          <template v-slot:icon>
+            <v-icon name="cross-icon" width="14" height="14" />
+          </template>
         </v-button>
       </div>
     </div>

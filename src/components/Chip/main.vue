@@ -13,9 +13,7 @@
     <div class="chip__close" v-if="closable">
 
       <button class="chip__delete" @click.stop="onDelete">
-        <svg slot="icon" height="12" width="12">
-          <use xlink:href="#cross-icon"></use>
-        </svg>
+        <v-icon name="cross-icon" height="12" width="12" />
       </button>
 
     </div>

@@ -63,19 +63,22 @@
         <div class="select__placeholder" v-if="isPlaceholderVisible">{{ placeholder }}</div>
       </div>
 
-      <svg
+      <v-icon
         v-if="isSlotDisplayed && clearable"
         @click.stop="clear"
         class="select__clear"
+        name="cross-icon"
         height="16"
         width="16"
-      >
-        <use xlink:href="#cross-icon"></use>
-      </svg>
+      />
 
-      <svg v-else class="select__chevron" width="18px" height="18px">
-        <use xlink:href="#chevron-down-icon"></use>
-      </svg>
+      <v-icon
+        v-else
+        class="select__chevron"
+        name="chevron-down-icon"
+        height="18"
+        width="18"
+      />
     </div>
 
     <div

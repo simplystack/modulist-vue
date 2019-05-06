@@ -14,9 +14,9 @@
             <h3 class="modal__title">{{ title }}</h3>
 
             <v-button appearance="subtle" size="1" @click="close">
-              <svg slot="icon" width="16" height="16">
-                <use xlink:href="#cross-icon"></use>
-              </svg>
+              <template v-slot:icon>
+                <v-icon name="cross-icon" width="16" height="16"/>
+              </template>
             </v-button>
 
           </div>
