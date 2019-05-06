@@ -6,6 +6,12 @@ import * as directives from './directives';
 function install(Vue) {
   if (install.installed) return;
   install.installed = true;
+
+  /* eslint-disable-next-line no-param-reassign */
+  Vue.prototype.$modulist = {
+    getIcon: name => `@modulist/icons/dist/${name}.svg`,
+  };
+
   Object.keys(components).forEach((component) => {
     Vue.component(component, components[component]);
   });
