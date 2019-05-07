@@ -74,7 +74,7 @@ export default {
         })
         .catch(error => console.error('Error while downloading SVG file', error));
     },
-    async getSvgIconText() {
+    getSvgIconText() {
       const url = this.filepath;
 
       if (!cache.has(url)) {
@@ -85,10 +85,11 @@ export default {
         }
       }
 
-      return cache.has(url)
-      /* eslint-disable-next-line no-return-await */
-        ? await cache.get(url)
-        : Promise.reject(new Error('The icon is not exists in local cache'));
+      if (!cache.has(url)) {
+        Promise.reject(new Error('The icon is not exists in local cache'));
+      }
+
+      return cache.get(url);
     },
     refreshSvg() {
       Promise.resolve(this.parsedSVG)
