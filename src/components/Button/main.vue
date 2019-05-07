@@ -1,5 +1,11 @@
 <template>
-  <button class="button" :class="classes" :disabled="disabled" :type="type" v-on="$listeners">
+  <button
+    class="button"
+    :class="classes"
+    :disabled="disabled || loading"
+    :type="type"
+    v-on="$listeners"
+  >
     <slot></slot>
     <div class="button__icon" v-if="$slots.icon">
       <slot name="icon"></slot>
