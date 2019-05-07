@@ -16,11 +16,7 @@ const baseConfig = {
         isProduction: true,
       },
     }),
-    buble({
-      transforms: {
-        asyncAwait: false,
-      },
-    }),
+    buble(),
   ],
 };
 
