@@ -9,7 +9,8 @@ function install(Vue) {
 
   /* eslint-disable-next-line no-param-reassign */
   Vue.prototype.$modulist = {
-    getIcon: name => `@modulist/icons/dist/${name}.svg`,
+    /* eslint-disable-next-line */
+    getIcon: name => require(`@modulist/icons/dist/${name}.svg`),
   };
 
   Object.keys(components).forEach((component) => {
