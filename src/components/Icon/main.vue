@@ -86,7 +86,7 @@ export default {
       }
 
       if (!cache.has(url)) {
-        Promise.reject(new Error('The icon is not exists in local cache'));
+        return Promise.reject(new Error('The icon is not exists in local cache'));
       }
 
       return cache.get(url);
