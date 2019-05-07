@@ -55,3 +55,14 @@ export function toString(v) {
   }
   return String(v).toLowerCase();
 }
+
+/**
+ *
+ * @param str
+ * @returns {ChildNode}
+ */
+export function stringToNode(str) {
+  const div = document.createElement('div');
+  div.innerHTML = str.trim();
+  return div.firstChild;
+}

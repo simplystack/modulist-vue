@@ -1,9 +1,17 @@
 <template>
-  <svg :viewBox="viewBox" :width="width" :height="height" :fill="fill" :stroke="stroke"></svg>
+  <svg
+    :viewBox="viewBox"
+    :width="width"
+    :height="height"
+    :fill="fill"
+    :stroke="stroke"
+    v-on="$listeners"
+  ></svg>
 </template>
 
 <script>
-const parser = new DOMParser();
+import { stringToNode } from '../../helpers/util';
+
 const cache = new Map();
 
 export default {
@@ -44,7 +52,7 @@ export default {
     },
     parsedSVG() {
       return this.svgString
-        ? parser.parseFromString(this.svgString, 'image/svg+xml').documentElement
+        ? stringToNode(this.svgString)
         : null;
     },
     viewBox() {
