@@ -3,9 +3,7 @@
 </template>
 
 <script>
-import { parse } from 'postsvg';
-import render from 'posthtml-render';
-
+const parser = new DOMParser();
 const cache = new Map();
 
 export default {
@@ -42,13 +40,15 @@ export default {
   computed: {
     filepath() {
       /* eslint-disable-next-line */
-      return this.$modulist.getIcon(this.name);
+        return this.$modulist.getIcon(this.name);
     },
     parsedSVG() {
-      return this.svgString ? parse(this.svgString) : null;
+      return this.svgString
+        ? parser.parseFromString(this.svgString, 'image/svg+xml').documentElement
+        : null;
     },
     viewBox() {
-      return this.parsedSVG ? this.parsedSVG.root.attrs.viewBox : '0 0 20 20';
+      return this.parsedSVG ? this.parsedSVG.getAttribute('viewBox') : '0 0 20 20';
     },
   },
   watch: {
@@ -84,16 +84,14 @@ export default {
     },
     refreshSvg() {
       Promise.resolve(this.parsedSVG)
-        .then((svgTree) => {
-          svgTree.each('path', (node) => {
-            /* eslint-disable-next-line no-param-reassign */
-            node.attrs.fill = this.fill;
-          });
-          return svgTree;
+        .then((svgElement) => {
+          [...svgElement.querySelectorAll('path')]
+            .forEach(node => node.setAttribute('fill', this.fill));
+          return svgElement;
         })
-        .then(svgTree => render(svgTree.root.content))
-        .then((svgHtml) => {
-          this.$el.innerHTML = svgHtml;
+        .then(svgElement => svgElement.innerHTML)
+        .then((svgContent) => {
+          this.$el.innerHTML = svgContent;
         })
         .then(() => this.generateReadyEvent && this.$emit('ready'))
         .catch((error) => {

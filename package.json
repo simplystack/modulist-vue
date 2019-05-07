@@ -2,7 +2,7 @@
   "name": "@modulist/vue",
   "description": "Vue components for the Modulist Design System",
   "author": "SimplyStack",
-  "version": "1.0.0-alpha.21",
+  "version": "1.0.0-alpha.22",
   "main": "dist/modulist-vue.common.js",
   "module": "src/entry.js",
   "unpkg": "dist/modulist-vue.min.js",
@@ -79,8 +79,6 @@
   "homepage": "https://github.com/simplystack/modulist-vue#readme",
   "dependencies": {
     "fuzzysearch": "^1.0.3",
-    "popper.js": "^1.14.7",
-    "posthtml-render": "^1.1.4",
-    "postsvg": "^2.2.7"
+    "popper.js": "^1.14.7"
   }
 }
