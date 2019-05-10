@@ -93,7 +93,6 @@
 </template>
 
 <script>
-import fuzzysearch from 'fuzzysearch';
 import VSpinner from '../Spinner';
 import { toString } from '../../helpers/util';
 
@@ -157,11 +156,22 @@ export default {
     mutableItems() {
       let items = this.items.slice();
 
+      /* Filtering */
       if (this.query) {
-        this.clearSelection();
-        items = items.filter(item => fuzzysearch(this.query, toString(item)));
+        let regex;
+        if (this.query instanceof RegExp) {
+          regex = this.query;
+        } else {
+          regex = new RegExp(`.*${this.query}.*`, 'ig');
+        }
+        items = items.filter((item) => {
+          const test = regex.test(toString(item));
+          regex.lastIndex = 0;
+          return test;
+        });
       }
 
+      /* Sorting */
       const sortCompare = this.sortCompare || defaultSortCompare;
       if (this.sortBy) {
         items = items.sort((a, b) => {
@@ -170,6 +180,7 @@ export default {
         });
       }
 
+      /* Paginating */
       if (this.perPage) {
         items = items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
       }
