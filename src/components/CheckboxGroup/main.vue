@@ -63,6 +63,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    vertical: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    classes() {
+      return [
+        { 'checkbox-group--vertical': this.vertical },
+      ];
+    },
   },
   data() {
     return {
