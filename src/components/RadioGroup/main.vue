@@ -1,5 +1,5 @@
 <template>
-  <div class="radio-group">
+  <div class="radio-group" :class="classes">
     <div class="radio-group__label">{{ label }}</div>
 
     <div class="radio-group__list">
@@ -8,7 +8,7 @@
         :key="option[keys.id] || `${name}-${i}`"
         v-for="(option, i) in options"
       >
-        <VRadio
+        <v-radio
           :id="option[keys.id] || `${name}-${i}`"
           :label="option[keys.label] || option"
           :checked="isOptionCheckedByDefault(option)"
@@ -67,6 +67,17 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    vertical: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    classes() {
+      return [
+        { 'radio-group--vertical': this.vertical },
+      ];
     },
   },
   data() {
