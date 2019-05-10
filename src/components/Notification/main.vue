@@ -42,6 +42,9 @@ export default {
     type: {
       type: String,
       default: 'info',
+      validator(type) {
+        return ['info', 'success', 'warning', 'error'].indexOf(type) > -1;
+      },
     },
     title: {
       type: String,
