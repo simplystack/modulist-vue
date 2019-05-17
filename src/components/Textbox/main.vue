@@ -13,20 +13,17 @@
       :name="name"
       :id="id"
       :tabindex="tabindex"
-      :max="maxValue"
+      :max="max"
       :maxlength="maxlength ? maxlength : null"
-      :min="minValue"
+      :min="min"
       :number="type === 'number' ? true : null"
-      :step="stepValue"
+      :step="step"
       :type="type"
-      :value="value"
 
-      @blur="onBlur"
-      @change="onChange"
-      @focus="onFocus"
-      @input="updateValue($event.target.value)"
-      @keydown.enter="onKeydownEnter"
-      @keydown="onKeydown"
+      @blur="handleBlur"
+      @change="handleChange"
+      @focus="handleFocus"
+      @input="handleInput"
 
       ref="input"
       class="textbox__input"
@@ -45,14 +42,11 @@
       :id="id"
       :rows="rows"
       :tabindex="tabindex"
-      :value="value"
 
-      @blur="onBlur"
-      @change="onChange"
-      @focus="onFocus"
-      @input="updateValue($event.target.value)"
-      @keydown.enter="onKeydownEnter"
-      @keydown="onKeydown"
+      @blur="handleBlur"
+      @change="handleChange"
+      @focus="handleFocus"
+      @input="handleInput"
 
       ref="textarea"
       class="textbox__textarea"
@@ -109,11 +103,17 @@ export default {
       type: Number,
       default: 2,
     },
-    min: Number,
-    max: Number,
+    min: {
+      type: Number,
+      default: -Infinity,
+    },
+    max: {
+      type: Number,
+      default: Infinity,
+    },
     step: {
-      type: String,
-      default: 'any',
+      type: Number,
+      default: 1,
     },
     maxlength: Number,
     readonly: {
@@ -146,21 +146,6 @@ export default {
     },
   },
   computed: {
-    minValue() {
-      if (this.type === 'number' && this.min !== undefined) {
-        return this.min;
-      }
-      return null;
-    },
-    maxValue() {
-      if (this.type === 'number' && this.max !== undefined) {
-        return this.max;
-      }
-      return null;
-    },
-    stepValue() {
-      return this.type === 'number' ? this.step : null;
-    },
     classes() {
       return [
         `textbox--size-${this.size}`,
@@ -170,58 +155,76 @@ export default {
         { 'textbox--error': this.error },
       ];
     },
+    nativeInputValue() {
+      return this.value === null || this.value === undefined ? '' : String(this.value);
+    },
   },
   data() {
     return {
       isTouched: false,
+      isFocused: false,
       initialValue: this.value,
     };
   },
-  created() {
-    // If value is null, set it to empty string
-    if (this.value === null) {
-      this.initialValue = '';
-      this.updateValue('');
-    }
+  mounted() {
+    this.setNativeInputValue();
   },
   methods: {
-    updateValue(value) {
-      this.$emit('input', value);
-    },
-    onChange(e) {
-      this.$emit('change', this.value, e);
-    },
-    onFocus(e) {
-      this.$emit('focus', e);
-    },
-    onBlur(e) {
-      this.$emit('blur', e);
-      if (!this.isTouched) {
-        this.isTouched = true;
-        this.$emit('touch');
-      }
-    },
-    onKeydown(e) {
-      this.$emit('keydown', e);
-    },
-    onKeydownEnter(e) {
-      this.$emit('keydown-enter', e);
-    },
-    reset() {
-      if (
-        document.activeElement === this.$refs.input
-        || document.activeElement === this.$refs.textarea
-      ) {
-        document.activeElement.blur();
-      }
-      this.updateValue(this.initialValue);
-      this.resetTouched();
-    },
-    resetTouched(options = { touched: false }) {
-      this.isTouched = options.touched;
+    getInput() {
+      return this.$refs.input || this.$refs.textarea;
     },
     focus() {
-      (this.$refs.input || this.$refs.textarea).focus();
+      this.getInput().focus();
+    },
+    blur() {
+      this.getInput().blur();
+    },
+    select() {
+      this.getInput().select();
+    },
+    clear() {
+      this.$emit('input', '');
+      this.$emit('change', '');
+      this.$emit('clear');
+    },
+    reset() {
+      this.$emit('input', this.initialValue);
+      this.$emit('change', this.initialValue);
+      this.$emit('reset');
+    },
+    handleBlur(event) {
+      this.isFocused = false;
+      this.$emit('blur', event);
+    },
+    handleFocus(event) {
+      this.isFocused = true;
+      this.$emit('focus', event);
+    },
+    handleInput(event) {
+      if (event.target.value === this.nativeInputValue) return;
+
+      this.$emit('input', event.target.value);
+
+      this.$nextTick(this.setNativeInputValue);
+    },
+    handleChange(event) {
+      this.$emit('change', event.target.value);
+    },
+    setNativeInputValue() {
+      const input = this.getInput();
+      if (!input) return;
+      if (input.value === this.nativeInputValue) return;
+      input.value = this.nativeInputValue;
+    },
+  },
+  watch: {
+    nativeInputValue() {
+      this.setNativeInputValue();
+    },
+    type() {
+      this.$nextTick(() => {
+        this.setNativeInputValue();
+      });
     },
   },
 };
