@@ -150,7 +150,7 @@ export default {
       return [
         `textbox--size-${this.size}`,
         { 'textbox--floated': this.floated },
-        { 'textbox--floated-active': this.floated && this.value !== '' },
+        { 'textbox--floated-active': this.floated && this.nativeInputValue !== '' },
         { 'textbox--wide': this.wide },
         { 'textbox--error': this.error },
       ];
