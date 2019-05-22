@@ -13,6 +13,13 @@ export default {
         return ['default', 'primary'].indexOf(appearance) > -1;
       },
     },
+    size: {
+      type: String,
+      default: '3',
+      validator(appearance) {
+        return ['1', '2', '3', '4'].indexOf(appearance) > -1;
+      },
+    },
   },
   computed: {
     classes() {
