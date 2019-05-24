@@ -25,6 +25,7 @@ export default {
     classes() {
       return [
         `spinner--${this.appearance}`,
+        `spinner--size-${this.size}`,
       ];
     },
   },
