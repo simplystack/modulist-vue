@@ -25,7 +25,7 @@
             <slot></slot>
           </div>
 
-          <div class="modal__footer">
+          <div class="modal__footer" v-if="$scopedSlots.footer">
             <slot name="footer"></slot>
           </div>
 
