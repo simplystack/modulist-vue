@@ -150,13 +150,10 @@ export default {
       return [
         `textbox--size-${this.size}`,
         { 'textbox--floated': this.floated },
-        { 'textbox--floated-active': this.floated && this.nativeInputValue !== '' },
+        { 'textbox--floated-active': this.floated && this.value },
         { 'textbox--wide': this.wide },
         { 'textbox--error': this.error },
       ];
-    },
-    nativeInputValue() {
-      return this.value === null || this.value === undefined ? '' : String(this.value);
     },
   },
   data() {
@@ -166,8 +163,11 @@ export default {
       initialValue: this.value,
     };
   },
-  mounted() {
-    this.setNativeInputValue();
+  created() {
+    if (this.value === null) {
+      this.initialValue = '';
+      this.updateValue('');
+    }
   },
   methods: {
     getInput() {
@@ -192,6 +192,9 @@ export default {
       this.$emit('change', this.initialValue);
       this.$emit('reset');
     },
+    updateValue(value) {
+      this.$emit('input', value);
+    },
     handleBlur(event) {
       this.isFocused = false;
       this.$emit('blur', event);
@@ -201,30 +204,10 @@ export default {
       this.$emit('focus', event);
     },
     handleInput(event) {
-      if (event.target.value === this.nativeInputValue) return;
-
       this.$emit('input', event.target.value);
-
-      this.$nextTick(this.setNativeInputValue);
     },
     handleChange(event) {
       this.$emit('change', event.target.value);
-    },
-    setNativeInputValue() {
-      const input = this.getInput();
-      if (!input) return;
-      if (input.value === this.nativeInputValue) return;
-      input.value = this.nativeInputValue;
-    },
-  },
-  watch: {
-    nativeInputValue() {
-      this.setNativeInputValue();
-    },
-    type() {
-      this.$nextTick(() => {
-        this.setNativeInputValue();
-      });
     },
   },
 };
