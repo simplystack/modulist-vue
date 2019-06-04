@@ -19,6 +19,7 @@
       :number="type === 'number' ? true : null"
       :step="step"
       :type="type"
+      :value="value"
 
       @blur="handleBlur"
       @change="handleChange"
@@ -42,6 +43,7 @@
       :id="id"
       :rows="rows"
       :tabindex="tabindex"
+      :value="value"
 
       @blur="handleBlur"
       @change="handleChange"
