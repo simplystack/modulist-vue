@@ -159,7 +159,7 @@ export default {
       <v-table-header title="Custom title" :handleSearchInput="handleSearchInput"></v-table-header>
     </template>
     <template v-slot:pagination="{ total, perPage }">
-      <v-pagination v-model="pagination.currentPage" size="3" :total="total" :per-page="perPage"/>
+      <v-pagination v-if="total > perPage" v-model="pagination.currentPage" size="3" :total="total" :per-page="perPage"/>
     </template>
   </v-table>
 </div>

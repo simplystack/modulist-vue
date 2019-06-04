@@ -52,7 +52,7 @@
         </slot>
       </tr>
 
-      <tr v-for="(item, index) in mutableItems" :key="index">
+      <tr v-for="(item, index) in mutablePaginated" :key="index">
         <td class="table-select-td" v-if="multiSelect">
           <input type="checkbox" @change="handleSelect" v-model="selected[index]">
         </td>
@@ -86,7 +86,7 @@
     </table>
 
     <div class="table-pagination" v-if="$scopedSlots.pagination">
-      <slot name="pagination" :total="items.length" :perPage="perPage"></slot>
+      <slot name="pagination" :total="mutableItems.length" :perPage="perPage"></slot>
     </div>
 
   </div>
@@ -180,12 +180,11 @@ export default {
         });
       }
 
-      /* Paginating */
-      if (this.perPage) {
-        items = items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
-      }
-
       return items;
+    },
+    mutablePaginated() {
+      return this.mutableItems
+        .slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
     },
     mutableSelected() {
       return this.mutableItems
