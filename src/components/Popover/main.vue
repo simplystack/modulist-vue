@@ -8,7 +8,7 @@
       role="dialog"
       class="popover__content"
       aria-haspopup="true"
-      :aria-expanded="isActive ? 'true' : 'false'"
+      :aria-expanded="isActive"
       tabindex="-1"
       v-if="isActive"
     >
@@ -67,7 +67,6 @@ export default {
     return {
       isActive: false,
       popperInstance: null,
-      focusedElBeforeOpen: null,
     };
   },
   mounted() {
@@ -118,34 +117,31 @@ export default {
       }
     },
     toggle() {
-      if (this.isActive) {
-        this.close();
-      } else {
-        this.show();
-      }
+      return this.isActive ? this.close() : this.show();
     },
     show() {
       if (this.disabled) return;
       if (this.isActive) return;
 
-      this.focusedElBeforeOpen = document.activeElement;
-
       this.isActive = true;
-      this.initPopper();
+
       this.$nextTick(() => {
+        this.initPopper();
+        this.updatePopper();
         this.$el.focus();
+        this.$emit('open');
       });
-      this.$emit('open');
     },
     close() {
       this.isActive = false;
+
       this.$nextTick(() => {
         this.destroyPopper();
+        this.$emit('close');
       });
-      this.$emit('close');
+
       if (this.returnFocusOnClose) {
         this.triggerEl.focus();
-        // this.focusedElBeforeOpen.focus();
       }
     },
     restrictFocus(e) {
@@ -161,9 +157,10 @@ export default {
       }
     },
     initPopper() {
-      this.$nextTick(() => {
-        this.popperInstance = new Popper(this.triggerEl, this.$refs.content, this.popperOptions);
-      });
+      this.popperInstance = new Popper(this.triggerEl, this.$refs.content, this.popperOptions);
+    },
+    updatePopper() {
+      this.popperInstance.scheduleUpdate();
     },
     destroyPopper() {
       if (this.popperInstance) {
@@ -179,6 +176,7 @@ export default {
   },
   beforeDestroy() {
     this.removeEventsListeners();
+    this.destroyPopper();
   },
 };
 </script>
