@@ -44,7 +44,7 @@
           <v-chip
             class="select__selected-option"
 
-            :title="mutableValue[0].label"
+            :title="mutableValue[0][keys.label]"
 
             closable
 
